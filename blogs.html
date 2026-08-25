@@ -150,7 +150,6 @@
             </a>
           </div>
         </li>
-        <a href="team.html">Team</a>
         <a href="blogs.html" class="active">Blogs</a>
         <a href="contact.html">Contact</a>
       </nav>
@@ -188,7 +187,7 @@
 
   <section>
     <div class="container">
-      <div class="blogs-grid">
+      <div class="blogs-grid" id="blogsGrid">
         <!-- Blog 1 -->
         <div class="blog-card animate-slide-up delay-100" onclick="window.location.href='blog-detail.html';"
           style="cursor: pointer;">
@@ -328,7 +327,6 @@
         <div>
           <h4>Company</h4>
           <ul>
-            <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="service-corporate-law.html">Services</a></li>
             <li><a href="blogs.html">Blogs</a></li>
@@ -378,6 +376,114 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      'use strict';
+
+      const blogsGrid = document.getElementById('blogsGrid');
+      const blogsEndpoint = 'https://lexmart.brandmindz.in/api/blogs.php';
+
+      if (!blogsGrid) return;
+
+      function formatDate(dateValue) {
+        if (!dateValue) return '';
+
+        const date = new Date(dateValue);
+        return Number.isNaN(date.getTime())
+          ? ''
+          : new Intl.DateTimeFormat('en-IN', {
+              day: 'numeric',
+              month: 'short',
+              year: 'numeric'
+            }).format(date);
+      }
+
+      function getExcerpt(blog) {
+        const description = blog.short_description || blog.content || '';
+        const plainText = String(description).replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+        return plainText.length > 180 ? `${plainText.slice(0, 177).trim()}...` : plainText;
+      }
+
+      function createBlogCard(blog, index) {
+        const detailUrl = `blog-detail.html?id=${encodeURIComponent(blog.id || '')}`;
+        const card = document.createElement('article');
+        card.className = `blog-card animate-slide-up delay-${((index % 3) + 1) * 100}`;
+
+        const thumbnail = document.createElement('div');
+        thumbnail.className = 'blog-thumb';
+        if (blog.image_url) {
+          const image = document.createElement('img');
+          image.src = blog.image_url;
+          image.alt = blog.title || 'Blog article';
+          image.loading = 'lazy';
+          thumbnail.appendChild(image);
+        }
+
+        const body = document.createElement('div');
+        body.className = 'blog-body';
+
+        const tag = document.createElement('span');
+        tag.className = 'blog-tag';
+        tag.textContent = blog.category || 'Insights';
+
+        const date = document.createElement('span');
+        date.className = 'blog-date';
+        date.textContent = formatDate(blog.created_at);
+
+        const title = document.createElement('h3');
+        title.textContent = blog.title || 'Untitled article';
+
+        const excerpt = document.createElement('p');
+        excerpt.style.cssText = 'font-size: 13.5px; color: var(--ink-soft); margin-bottom: 16px;';
+        excerpt.textContent = getExcerpt(blog);
+
+        const link = document.createElement('a');
+        link.href = detailUrl;
+        link.textContent = 'Read Article ';
+        link.setAttribute('aria-label', `Read article: ${blog.title || 'Untitled article'}`);
+        link.insertAdjacentHTML('beforeend', '<svg class="icon" style="width:14px;height:14px;"><use href="#i-chevron" /></svg>');
+
+        body.append(tag, date, title, excerpt, link);
+        card.append(thumbnail, body);
+        return card;
+      }
+
+      async function loadDatabaseBlogs() {
+        try {
+          const response = await fetch(blogsEndpoint, {
+            headers: { Accept: 'application/json' }
+          });
+          if (!response.ok) throw new Error(`Blog request failed: ${response.status}`);
+
+          const result = await response.json();
+          if (result.status !== 'success' || !Array.isArray(result.data)) {
+            throw new Error('Invalid blog API response');
+          }
+
+          // A successful database response replaces the static fallback content.
+          blogsGrid.replaceChildren();
+
+          if (result.data.length === 0) {
+            const emptyMessage = document.createElement('p');
+            emptyMessage.textContent = 'No blog articles are available yet. Please check back soon.';
+            emptyMessage.style.cssText = 'grid-column: 1 / -1; text-align: center; color: var(--ink-soft);';
+            blogsGrid.appendChild(emptyMessage);
+            return;
+          }
+
+          result.data.forEach(function (blog, index) {
+            blogsGrid.appendChild(createBlogCard(blog, index));
+          });
+        } catch (error) {
+          // Keep the existing static cards visible if the database cannot be reached.
+          console.error('Unable to load blogs from the database:', error);
+        }
+      }
+
+      loadDatabaseBlogs();
+    }());
+  </script>
 
 </body>
 

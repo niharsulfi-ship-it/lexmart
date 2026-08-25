@@ -389,7 +389,6 @@
             </a>
           </div>
         </li>
-        <a href="team.html">Team</a>
         <a href="blogs.html" class="active">Blogs</a>
         <a href="contact.html">Contact</a>
       </nav>
@@ -417,26 +416,26 @@
 </header>
 <nav class="mobile-nav" id="mobileNav" style="display:none"><button class="mobile-close" id="mobileClose" aria-label="Close Menu">&times;</button><a href="index.html">Home</a><a href="about.html">About</a><span class="mobile-services-title">Services</span><div class="mobile-sub-links"><a href="service-corporate-law.html">Corporate Law</a><a href="service-taxation.html">Taxation</a><a href="service-intellectual-property.html">Intellectual Property</a><a href="service-business-compliance.html">Business Compliance</a><a href="service-advisory.html">Advisory</a></div><a href="team.html">Team</a><a href="blogs.html">Blogs</a><a href="contact.html">Contact</a></nav><script>(function(){var btn=document.getElementById("hamburgerBtn");var nav=document.getElementById("mobileNav");var cl=document.getElementById("mobileClose");if(btn&&nav){btn.addEventListener("click",function(){nav.classList.toggle("open");btn.classList.toggle("open");document.body.style.overflow=nav.classList.contains("open")?"hidden":"";});if(cl)cl.addEventListener("click",function(){nav.classList.remove("open");btn.classList.remove("open");document.body.style.overflow="";});nav.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){nav.classList.remove("open");btn.classList.remove("open");document.body.style.overflow="";});});}})();</script>
 
-  <section class="bd-hero animate-fade-in">
+  <section class="bd-hero animate-fade-in" id="blogHero">
     <div class="container bd-hero-inner">
       <div class="bd-meta animate-slide-up delay-100">
-        <span class="bd-tag">Taxation</span>
+        <span class="bd-tag" id="blogCategory">Taxation</span>
         <span class="bd-date"><svg class="icon" style="width:14px;height:14px;">
             <use href="#i-calendar" />
-          </svg> Oct 15, 2024</span>
+          </svg> <span id="blogDateText">Oct 15, 2024</span></span>
       </div>
-      <h1 class="animate-slide-up delay-200">GST Registration: When Is It Mandatory and Why Does It Matter?</h1>
-      <!-- <div class="bd-author animate-slide-up delay-300">
+      <h1 class="animate-slide-up delay-200" id="blogTitle">GST Registration: When Is It Mandatory and Why Does It Matter?</h1>
+      <div class="bd-author animate-slide-up delay-300">
         <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=100"
           alt="Author">
-        <span>By Rahul Sharma, Managing Partner</span>
-      </div> -->
+        <span id="blogAuthor">By Rahul Sharma, Managing Partner</span>
+      </div>
     </div>
   </section>
 
   <section class="container animate-fade-in delay-300">
     <div class="bd-layout">
-      <div class="bd-content">
+      <div class="bd-content" id="blogContent">
         <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=1200"
           alt="GST Registration" class="feat-img">
 
@@ -634,7 +633,6 @@
         <div>
           <h4>Company</h4>
           <ul>
-            <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="service-corporate-law.html">Services</a></li>
             <li><a href="blogs.html">Blogs</a></li>
@@ -684,6 +682,111 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      'use strict';
+
+      const blogId = new URLSearchParams(window.location.search).get('id');
+      const endpoint = 'https://lexmart.brandmindz.in/api/blogs.php';
+      const contentElement = document.getElementById('blogContent');
+
+      if (!blogId || !contentElement) return;
+
+      function formatDate(dateValue) {
+        const date = new Date(dateValue);
+        return Number.isNaN(date.getTime()) ? '' : new Intl.DateTimeFormat('en-IN', {
+          day: 'numeric', month: 'short', year: 'numeric'
+        }).format(date);
+      }
+
+      function appendSafeContent(container, content) {
+        const source = String(content || '').trim();
+        if (!source) {
+          const message = document.createElement('p');
+          message.textContent = 'This article does not have a description yet.';
+          container.appendChild(message);
+          return;
+        }
+
+        if (!/<[a-z][\s\S]*>/i.test(source)) {
+          source.split(/\n{2,}/).forEach(function (paragraph) {
+            const element = document.createElement('p');
+            element.textContent = paragraph.trim();
+            if (element.textContent) container.appendChild(element);
+          });
+          return;
+        }
+
+        const allowedTags = new Set(['P', 'H2', 'H3', 'H4', 'UL', 'OL', 'LI', 'STRONG', 'EM', 'B', 'I', 'BR', 'BLOCKQUOTE', 'A']);
+        const blockedTags = new Set(['SCRIPT', 'STYLE', 'IFRAME', 'OBJECT', 'EMBED', 'SVG', 'MATH']);
+        const documentBody = new DOMParser().parseFromString(source, 'text/html').body;
+
+        function copyNode(node, parent) {
+          if (node.nodeType === Node.TEXT_NODE) {
+            parent.appendChild(document.createTextNode(node.textContent));
+            return;
+          }
+          if (node.nodeType !== Node.ELEMENT_NODE || blockedTags.has(node.tagName)) return;
+
+          const target = allowedTags.has(node.tagName)
+            ? document.createElement(node.tagName.toLowerCase())
+            : parent;
+
+          if (node.tagName === 'A' && target !== parent) {
+            try {
+              const url = new URL(node.getAttribute('href'), window.location.origin);
+              if (url.protocol === 'http:' || url.protocol === 'https:') {
+                target.href = url.href;
+                target.rel = 'noopener noreferrer';
+              }
+            } catch (_) {}
+          }
+
+          Array.from(node.childNodes).forEach(function (child) { copyNode(child, target); });
+          if (target !== parent) parent.appendChild(target);
+        }
+
+        Array.from(documentBody.childNodes).forEach(function (node) { copyNode(node, container); });
+      }
+
+      async function loadBlogDetail() {
+        try {
+          const response = await fetch(endpoint, { headers: { Accept: 'application/json' } });
+          if (!response.ok) throw new Error(`Blog request failed: ${response.status}`);
+
+          const result = await response.json();
+          if (result.status !== 'success' || !Array.isArray(result.data)) {
+            throw new Error('Invalid blog API response');
+          }
+
+          const blog = result.data.find(function (item) { return String(item.id) === String(blogId); });
+          if (!blog) throw new Error('Blog not found');
+
+          document.getElementById('blogCategory').textContent = blog.category || 'Insights';
+          document.getElementById('blogDateText').textContent = formatDate(blog.created_at);
+          document.getElementById('blogTitle').textContent = blog.title || 'Untitled article';
+          document.getElementById('blogAuthor').textContent = 'By Lexmart Editorial Team';
+          document.title = `${blog.meta_title || blog.title || 'Blog'} | Lexmart`;
+
+          contentElement.replaceChildren();
+          if (blog.image_url) {
+            const image = document.createElement('img');
+            image.src = blog.image_url;
+            image.alt = blog.title || 'Blog article';
+            image.className = 'feat-img';
+            contentElement.appendChild(image);
+          }
+          appendSafeContent(contentElement, blog.content || blog.short_description);
+        } catch (error) {
+          // Preserve the existing static article as a fallback.
+          console.error('Unable to load blog details from the database:', error);
+        }
+      }
+
+      loadBlogDetail();
+    }());
+  </script>
 
 </body>
 
