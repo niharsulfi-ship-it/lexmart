@@ -11,7 +11,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=2.1">
+  <link rel="stylesheet" href="style.css?v=4.1">
   <style>
     /* ── About-page-specific styles ── */
 
@@ -70,7 +70,7 @@
     }
 
     .about-hero-inner h1 {
-      font-size: 52px;
+      font-size: 46px;
       line-height: 1.15;
       font-weight: 800;
       color: #ffffff;
@@ -872,7 +872,8 @@
   <header>
     <div class="nav-wrap">
       <a href="index.html" class="logo" style="text-decoration: none;">
-        <img src="images/lexmart_logo.png" alt="Lexmart Logo" style="height:130px; width:auto; object-fit:contain;">
+        <img src="images/lexmart_logo_cropped.png" alt="Lexmart Logo"
+          style="height:90px; width:auto; display:block; margin:0; padding:0;">
       </a>
       <nav class="links">
         <a href="index.html">Home</a>
@@ -933,22 +934,39 @@
         white-space:nowrap;
         box-shadow:0 4px 14px rgba(6,45,128,0.3);
         transition:all .25s ease;
-      " onmouseover="this.style.boxShadow='0 6px 20px rgba(6,45,128,0.5)';this.style.transform='translateY(-1px)'" onmouseout="this.style.boxShadow='0 4px 14px rgba(6,45,128,0.3)';this.style.transform='translateY(0)'">
-        <svg style="width:15px;height:15px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      " onmouseover="this.style.boxShadow='0 6px 20px rgba(6,45,128,0.5)';this.style.transform='translateY(-1px)'"
+        onmouseout="this.style.boxShadow='0 4px 14px rgba(6,45,128,0.3)';this.style.transform='translateY(0)'">
+        <svg
+          style="width:15px;height:15px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;"
+          viewBox="0 0 24 24">
+          <rect x="3" y="4" width="18" height="18" rx="2" />
+          <line x1="16" y1="2" x2="16" y2="6" />
+          <line x1="8" y1="2" x2="8" y2="6" />
+          <line x1="3" y1="10" x2="21" y2="10" />
+        </svg>
         Book a Consultation
       </a>
 
     </div>
-  <button class="hamburger" id="hamburgerBtn" aria-label="Open Menu"><span></span><span></span><span></span></button>
-</header>
-<nav class="mobile-nav" id="mobileNav" style="display:none"><button class="mobile-close" id="mobileClose" aria-label="Close Menu">&times;</button><a href="index.html">Home</a><a href="about.html">About</a><span class="mobile-services-title">Services</span><div class="mobile-sub-links"><a href="service-corporate-law.html">Corporate Law</a><a href="service-taxation.html">Taxation</a><a href="service-intellectual-property.html">Intellectual Property</a><a href="service-business-compliance.html">Business Compliance</a><a href="service-advisory.html">Advisory</a></div><a href="team.html">Team</a><a href="blogs.html">Blogs</a><a href="contact.html">Contact</a></nav><script>(function(){var btn=document.getElementById("hamburgerBtn");var nav=document.getElementById("mobileNav");var cl=document.getElementById("mobileClose");if(btn&&nav){btn.addEventListener("click",function(){nav.classList.toggle("open");btn.classList.toggle("open");document.body.style.overflow=nav.classList.contains("open")?"hidden":"";});if(cl)cl.addEventListener("click",function(){nav.classList.remove("open");btn.classList.remove("open");document.body.style.overflow="";});nav.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){nav.classList.remove("open");btn.classList.remove("open");document.body.style.overflow="";});});}})();</script>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Open Menu"><span></span><span></span><span></span></button>
+  </header>
+  <nav class="mobile-nav" id="mobileNav" style="display:none"><button class="mobile-close" id="mobileClose"
+      aria-label="Close Menu">&times;</button><a href="index.html">Home</a><a href="about.html">About</a><span
+      class="mobile-services-title">Services</span>
+    <div class="mobile-sub-links"><a href="service-corporate-law.html">Corporate Law</a><a
+        href="service-taxation.html">Taxation</a><a href="service-intellectual-property.html">Intellectual
+        Property</a><a href="service-business-compliance.html">Business Compliance</a><a
+        href="service-advisory.html">Advisory</a></div><a href="team.html">Team</a><a href="blogs.html">Blogs</a><a
+      href="contact.html">Contact</a>
+  </nav>
+  <script>(function () { var btn = document.getElementById("hamburgerBtn"); var nav = document.getElementById("mobileNav"); var cl = document.getElementById("mobileClose"); if (btn && nav) { btn.addEventListener("click", function () { nav.classList.toggle("open"); btn.classList.toggle("open"); document.body.style.overflow = nav.classList.contains("open") ? "hidden" : ""; }); if (cl) cl.addEventListener("click", function () { nav.classList.remove("open"); btn.classList.remove("open"); document.body.style.overflow = ""; }); nav.querySelectorAll("a").forEach(function (a) { a.addEventListener("click", function () { nav.classList.remove("open"); btn.classList.remove("open"); document.body.style.overflow = ""; }); }); } })();</script>
 
   <!-- ── HERO ── -->
   <section class="about-hero animate-fade-in delay-100">
     <div class="hero-deco"></div>
     <div class="about-hero-inner animate-slide-up delay-200">
       <span class="eyebrow">ABOUT LEXMART</span>
-      <h1>Trusted Legal Counsel.<br><span class="highlight">Since 2022.</span></h1>
+      <h1>Expert Business Solutions <br><span class="highlight">Empowering Business Since 2022</span></h1>
       <p>Lexmart Corporate Solutions LLP is a full-service legal and compliance firm empowering startups, SMEs, and
         enterprises to navigate complex regulations with clarity, confidence, and precision.</p>
     </div>
@@ -985,7 +1003,7 @@
             <img src="images/About_OurStory-1.webp" alt="Lexmart Office">
           </div>
           <div class="story-badge">
-         
+
             <div
               style="font-size:14px; margin-top:10px; font-weight:500; opacity:0.9; text-transform:none; letter-spacing:0; line-height:1.4;">
               With decades of collective experience<br>of the team members.</div>
@@ -1183,9 +1201,9 @@
               <span class="partner-tag">Statutory Audits</span>
               <span class="partner-tag">Risk Mitigation</span>
               <span class="partner-tag">Accounting Standards</span>
-            
-      </div>
-    </div>
+
+            </div>
+          </div>
   </section>
   <footer>
     <div class="container">
@@ -1196,7 +1214,8 @@
             <img src="images/white_logo.png" alt="Lexmart Logo"
               style="height:140px; width:auto; object-fit:contain; border-radius:8px;">
           </a>
-          <p>Legal and business consulting for startups, SMEs, and enterprises &ndash; from incorporation to ongoing compliance.</p>
+          <p>Legal and business consulting for startups, SMEs, and enterprises &ndash; from incorporation to ongoing
+            compliance.</p>
           <div class="social-row">
             <a class="social-circle" href="#"><svg class="icon" style="width:16px;height:16px;">
                 <use href="#i-linkedin" />
@@ -1249,20 +1268,23 @@
           <ul class="contact-list">
             <li><svg class="icon">
                 <use href="#i-phone" />
-              </svg><span><a href="tel:+919999028148">+91 99990-28148</a><br><a href="tel:+919811541004">+91 98115-41004</a></span></li>
+              </svg><span><a href="tel:+919999028148">+91 99990-28148</a><br><a href="tel:+919811541004">+91
+                  98115-41004</a></span></li>
             <li><svg class="icon">
                 <use href="#i-mail" />
               </svg><span><a href="mailto:connect@lexmart.co.in">connect@lexmart.co.in</a></span></li>
             <li><svg class="icon">
                 <use href="#i-pin" />
-              </svg><span><span style="white-space:nowrap;">Lexmart Corporate Solutions LLP</span><br>I-23, L.G.F., Lajpat Nagar- III,<br>New Delhi- 110024.</span></li>
+              </svg><span><span style="white-space:nowrap;">Lexmart Corporate Solutions LLP</span><br>I-23, L.G.F.,
+                Lajpat Nagar- III,<br>New Delhi- 110024.</span></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>&copy; 2024 Lexmart Corporate Solutions LLP. All rights reserved.</span>
+        <span>Copyright &copy; 2026 Lexmart, All rights reserved.</span>
         <span>Built for founders who move fast.</span>
-        <span>Developed by <a href="https://brandmindz.com" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">Brand Mindz</a></span>
+        <span>Made with ❤️ by <a href="https://brandmindz.com/" target="_blank" rel="noopener"
+            style="color: inherit; text-decoration: underline;">Brand Mindz</a></span>
       </div>
     </div>
   </footer>

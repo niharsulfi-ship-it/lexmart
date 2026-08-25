@@ -36,7 +36,7 @@ function processDir(dir) {
 
             // 3. about.html text replacements
             if (file === 'about.html') {
-                const aboutRegex = /Since 2014/ig;
+                const aboutRegex = /Since 2022/ig;
                 if (aboutRegex.test(content)) {
                     content = content.replace(aboutRegex, 'Since 2022');
                     modified = true;
