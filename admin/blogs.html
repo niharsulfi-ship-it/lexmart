@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel - Blogs | Lexmart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin-style.css">
+  
+  <script>
+    // Authentication Check
+    if (localStorage.getItem('admin_logged_in') !== 'true') {
+      window.location.href = 'login.html';
+    }
+  </script>
+</head>
+<body>
+
+  <!-- Icons -->
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+        <polyline points="22,6 12,13 2,6"></polyline>
+      </symbol>
+      <symbol id="i-file-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+        <polyline points="14 2 14 8 20 8"></polyline>
+        <line x1="16" y1="13" x2="8" y2="13"></line>
+        <line x1="16" y1="17" x2="8" y2="17"></line>
+        <polyline points="10 9 9 9 8 9"></polyline>
+      </symbol>
+      <symbol id="i-log-out" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+        <polyline points="16 17 21 12 16 7"></polyline>
+        <line x1="21" y1="12" x2="9" y2="12"></line>
+      </symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="12" y1="5" x2="12" y2="19"></line>
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2>Lexmart Admin</h2>
+    </div>
+    <nav class="sidebar-nav">
+      <ul>
+        <li>
+          <a href="index.html">
+            <svg><use href="#i-mail" /></svg>
+            Enquiries
+          </a>
+        </li>
+        <li>
+          <a href="blogs.html" class="active">
+            <svg><use href="#i-file-text" /></svg>
+            Blogs
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div style="padding: 24px; border-top: 1px solid var(--border);">
+      <a href="#" onclick="logout()" style="color: var(--text-muted); text-decoration: none; display: flex; align-items: center; gap: 8px; font-weight: 500;">
+        <svg style="width:18px;height:18px;"><use href="#i-log-out" /></svg>
+        Logout
+      </a>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <header class="topbar">
+      <h1>Blogs Module</h1>
+      <div class="topbar-user">
+        <span>Admin User</span>
+        <div class="avatar">A</div>
+      </div>
+    </header>
+
+    <div class="content-wrapper">
+      <div class="card">
+        <div class="card-header">
+          <h3>Manage Blogs</h3>
+          <button class="btn btn-primary" onclick="openBlogModal()">
+            <svg style="width:16px;height:16px;stroke:currentColor;"><use href="#i-plus" /></svg>
+            Add New Blog
+          </button>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Image</th>
+              <th>Title</th>
+              <th>Category</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="blogTableBody">
+            <tr>
+              <td colspan="6" style="text-align: center; padding: 40px;">
+                Loading data...
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Add/Edit Blog Modal -->
+    <div class="modal-overlay" id="blogModal">
+      <div class="modal" style="max-height: 90vh; overflow-y: auto;">
+        <h3 id="modalTitle">Add New Blog</h3>
+        <form id="addBlogForm" enctype="multipart/form-data">
+          <input type="hidden" id="blogId" name="id">
+          
+          <div class="form-group">
+            <label for="blogTitle">Blog Title</label>
+            <input type="text" id="blogTitle" name="title" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="blogSlug">Slug</label>
+            <input type="text" id="blogSlug" name="slug" placeholder="e.g. my-blog-post">
+          </div>
+
+          <div class="form-group">
+            <label for="blogCategory">Category</label>
+            <select id="blogCategory" name="category" required>
+              <option value="Corporate Law">Corporate Law</option>
+              <option value="Taxation">Taxation</option>
+              <option value="Intellectual Property">Intellectual Property</option>
+              <option value="Business Compliance">Business Compliance</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="blogShortDesc">Short Description</label>
+            <textarea id="blogShortDesc" name="short_description" rows="2" style="width: 100%; border: 1px solid var(--border); border-radius: 6px; padding: 10px; font-family: 'Inter', sans-serif;"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="blogContent">Description (Content)</label>
+            <textarea id="blogContent" name="content" rows="4" style="width: 100%; border: 1px solid var(--border); border-radius: 6px; padding: 10px; font-family: 'Inter', sans-serif;"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="blogImage">Upload Image</label>
+            <input type="file" id="blogImage" name="image" accept="image/*">
+            <small style="color: var(--text-muted); display: block; margin-top: 4px;">Leave blank if not changing image.</small>
+          </div>
+
+          <div class="modal-actions">
+            <button type="button" class="btn btn-outline" onclick="closeBlogModal()">Cancel</button>
+            <button type="submit" class="btn btn-primary">Save Blog</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    function logout() {
+      localStorage.removeItem('admin_logged_in');
+      window.location.href = 'login.html';
+    }
+
+    // Store blogs locally to easily populate edit modal
+    let blogsData = [];
+
+    // Fetch Dynamic Data from API
+    async function loadBlogs() {
+      const tableBody = document.getElementById('blogTableBody');
+      try {
+        const response = await fetch('https://lexmart.brandmindz.in/api/blogs.php');
+        
+        if (!response.ok) throw new Error('API request failed');
+        const textData = await response.text();
+        
+        if (textData.trim().startsWith('<?php')) {
+          tableBody.innerHTML = `<tr><td colspan="6" style="text-align: center; color: red; padding: 20px;">Cannot load dynamic data. Please run on a PHP-enabled server.</td></tr>`;
+          return;
+        }
+
+        const data = JSON.parse(textData);
+        
+        if (data.status === 'success' && data.data && data.data.length > 0) {
+          tableBody.innerHTML = '';
+          blogsData = data.data; // store globally
+          
+          data.data.forEach((blog, index) => {
+            const tr = document.createElement('tr');
+            const dateStr = blog.created_at ? new Date(blog.created_at).toLocaleDateString() : 'N/A';
+            const status = blog.status || 'Draft';
+            const statusClass = status.toLowerCase() === 'published' ? 'badge-success' : 'badge-warning';
+            
+            tr.innerHTML = `
+              <td>${dateStr}</td>
+              <td>${blog.image_url ? `<img src="${blog.image_url}" alt="Blog" style="width: 60px; height: 40px; object-fit: cover; border-radius: 4px;">` : '<span style="color: var(--text-muted); font-size: 12px;">No image</span>'}</td>
+              <td>${blog.title || 'Untitled'}</td>
+              <td>${blog.category || 'Uncategorized'}</td>
+              <td><span class="badge ${statusClass}">${status}</span></td>
+              <td>
+                <div class="action-buttons">
+                  <button class="btn-outline" onclick="openBlogModal(${index})">Edit</button>
+                  <button class="btn-danger" onclick="deleteBlog(${blog.id})">Delete</button>
+                </div>
+              </td>
+            `;
+            tableBody.appendChild(tr);
+          });
+        } else {
+          tableBody.innerHTML = `<tr><td colspan="6" style="text-align: center; padding: 20px;">No blogs found.</td></tr>`;
+        }
+      } catch (error) {
+        console.error('Error fetching blogs:', error);
+        tableBody.innerHTML = `<tr><td colspan="6" style="text-align: center; color: red; padding: 20px;">Failed to load data. Ensure API is running.</td></tr>`;
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', loadBlogs);
+
+    // Modal logic
+    function openBlogModal(index = null) {
+      document.getElementById('blogModal').classList.add('active');
+      const form = document.getElementById('addBlogForm');
+      
+      if (index !== null) {
+        // Edit mode
+        document.getElementById('modalTitle').textContent = "Edit Blog";
+        const blog = blogsData[index];
+        document.getElementById('blogId').value = blog.id;
+        document.getElementById('blogTitle').value = blog.title;
+        document.getElementById('blogCategory').value = blog.category || 'Corporate Law';
+        document.getElementById('blogSlug').value = blog.slug || '';
+        document.getElementById('blogShortDesc').value = blog.short_description || '';
+        document.getElementById('blogContent').value = blog.content || '';
+      } else {
+        // Add mode
+        document.getElementById('modalTitle').textContent = "Add New Blog";
+        form.reset();
+        document.getElementById('blogId').value = '';
+      }
+    }
+    
+    function closeBlogModal() {
+      document.getElementById('blogModal').classList.remove('active');
+      document.getElementById('addBlogForm').reset();
+    }
+
+    // Handle Delete
+    async function deleteBlog(id) {
+      if (!confirm("Are you sure you want to delete this blog?")) return;
+      
+      try {
+        const response = await fetch('https://lexmart.brandmindz.in/api/blogs.php', {
+          method: 'DELETE',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ id })
+        });
+        
+        if (response.ok) {
+          loadBlogs();
+        } else {
+          alert('Failed to delete blog or running on Live Server.');
+          if (window.location.href.includes(':5500')) {
+             loadBlogs(); // Re-render for prototype
+          }
+        }
+      } catch (error) {
+         console.error('Error deleting:', error);
+      }
+    }
+
+    // Handle form submission (Add/Edit via FormData)
+    document.getElementById('addBlogForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const formData = new FormData(this);
+      
+      try {
+        const response = await fetch('https://lexmart.brandmindz.in/api/blogs.php', {
+          method: 'POST',
+          body: formData // Sends as multipart/form-data automatically
+        });
+        
+        if (response.ok) {
+          closeBlogModal();
+          loadBlogs(); // Reload the table
+        } else {
+          alert('Failed to save blog or you are on Live Server.');
+          closeBlogModal();
+          
+          // Mock append for Live Server prototype experience
+          if (!response.ok && window.location.href.includes(':5500')) {
+            const tableBody = document.getElementById('blogTableBody');
+            if(tableBody.innerHTML.includes('Cannot load dynamic data')) {
+              tableBody.innerHTML = '';
+            }
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+              <td>${new Date().toLocaleDateString()}</td>
+              <td>${formData.get('title')}</td>
+              <td>${formData.get('category')}</td>
+              <td><span class="badge badge-warning">Draft</span></td>
+              <td>
+                <div class="action-buttons">
+                  <button class="btn-outline" onclick="alert('Cannot edit mocked row.')">Edit</button>
+                  <button class="btn-danger" onclick="this.closest('tr').remove()">Delete</button>
+                </div>
+              </td>
+            `;
+            tableBody.prepend(tr);
+          }
+        }
+      } catch (error) {
+        console.error('Error saving blog:', error);
+      }
+    });
+  </script>
+</body>
+</html>

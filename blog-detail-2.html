@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Understanding the New MCA Guidelines for Annual Filings - Lexmart</title>
+  <meta name="description"
+    content="A comprehensive guide to the recent changes in MCA annual filing requirements for private limited companies in India.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .bd-hero {
+      background: var(--blue-900);
+      padding: 120px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bd-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1800') center/cover no-repeat;
+      opacity: 0.15;
+      pointer-events: none;
+    }
+
+    .bd-hero-inner {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .bd-meta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .bd-tag {
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .bd-date {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .bd-hero h1 {
+      font-size: 42px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .bd-author {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .bd-author img {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .bd-author span {
+      color: #fff;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .bd-layout {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 60px;
+      padding: 80px 0;
+      align-items: flex-start;
+    }
+
+    .bd-content {
+      background: #fff;
+      border-radius: 20px;
+    }
+
+    .bd-content img.feat-img {
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      margin-bottom: 40px;
+      box-shadow: 0 10px 30px rgba(12, 70, 187, 0.1);
+    }
+
+    .bd-content p {
+      font-size: 16px;
+      color: var(--ink-soft);
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    .bd-content h2 {
+      font-size: 28px;
+      color: var(--blue-800);
+      margin: 40px 0 20px;
+      font-weight: 700;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .bd-content h3 {
+      font-size: 22px;
+      color: var(--ink);
+      margin: 30px 0 16px;
+      font-weight: 700;
+    }
+
+    .bd-content ul {
+      margin-bottom: 24px;
+      padding-left: 20px;
+      color: var(--ink-soft);
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    .bd-content li {
+      margin-bottom: 12px;
+    }
+
+    .bd-quote {
+      background: var(--blue-50);
+      border-left: 4px solid var(--blue-700);
+      padding: 24px 30px;
+      border-radius: 0 12px 12px 0;
+      margin: 40px 0;
+    }
+
+    .bd-quote p {
+      font-size: 18px;
+      font-weight: 500;
+      font-style: italic;
+      color: var(--blue-900);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .bd-sidebar {
+      position: sticky;
+      top: 100px;
+    }
+
+    .sidebar-widget {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    }
+
+    .sidebar-widget h4 {
+      font-size: 18px;
+      color: var(--ink);
+      margin-bottom: 20px;
+      border-bottom: 2px solid var(--blue-100);
+      padding-bottom: 12px;
+    }
+
+    .recent-post {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 16px;
+      align-items: flex-start;
+      text-decoration: none;
+    }
+
+    .recent-post:last-child {
+      margin-bottom: 0;
+    }
+
+    .recent-post img {
+      width: 70px;
+      height: 70px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .recent-post .rp-text {
+      flex: 1;
+    }
+
+    .recent-post strong {
+      display: block;
+      font-size: 14px;
+      color: var(--ink);
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 4px;
+      transition: color 0.2s;
+    }
+
+    .recent-post:hover strong {
+      color: var(--blue-700);
+    }
+
+    .recent-post span {
+      font-size: 12px;
+      color: var(--ink-soft);
+    }
+
+    .share-widget {
+      display: flex;
+      gap: 10px;
+    }
+
+    .share-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--blue-50);
+      color: var(--blue-700);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+
+    .share-btn:hover {
+      background: var(--blue-700);
+      color: #fff;
+    }
+
+    @media (max-width: 900px) {
+      .bd-hero h1 {
+        font-size: 32px;
+      }
+
+      .bd-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .bd-sidebar {
+        position: static;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <symbol id="i-chevron" viewBox="0 0 24 24">
+        <polyline points="6 9 12 15 18 9" />
+      </symbol>
+      <symbol id="i-calendar" viewBox="0 0 24 24">
+        <rect x="3" y="4" width="18" height="18" rx="2" />
+        <line x1="16" y1="2" x2="16" y2="6" />
+        <line x1="8" y1="2" x2="8" y2="6" />
+        <line x1="3" y1="10" x2="21" y2="10" />
+      </symbol>
+      <symbol id="i-building" viewBox="0 0 24 24">
+        <rect x="4" y="3" width="16" height="18" rx="1" />
+        <path d="M9 21v-4h6v4M9 8h1M14 8h1M9 12h1M14 12h1" />
+      </symbol>
+      <symbol id="i-calc" viewBox="0 0 24 24">
+        <rect x="4" y="2" width="16" height="20" rx="2" />
+        <line x1="8" y1="6" x2="16" y2="6" />
+        <circle cx="8" cy="10.5" r=".6" fill="currentColor" stroke="none" />
+        <circle cx="12" cy="10.5" r=".6" fill="currentColor" stroke="none" />
+        <circle cx="16" cy="10.5" r=".6" fill="currentColor" stroke="none" />
+        <circle cx="8" cy="14.5" r=".6" fill="currentColor" stroke="none" />
+        <circle cx="12" cy="14.5" r=".6" fill="currentColor" stroke="none" />
+        <circle cx="16" cy="14.5" r=".6" fill="currentColor" stroke="none" />
+      </symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24">
+        <path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5Z" />
+        <path d="m9 12 2 2 4-4" />
+      </symbol>
+      <symbol id="i-lock" viewBox="0 0 24 24">
+        <rect x="3" y="11" width="18" height="11" rx="2" />
+        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+      </symbol>
+      <symbol id="i-zap" viewBox="0 0 24 24">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+      </symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24">
+        <path
+          d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+      </symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24">
+        <rect x="2" y="4" width="20" height="16" rx="2" />
+        <path d="m2 7 10 6 10-6" />
+      </symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+        <circle cx="12" cy="10" r="3" />
+      </symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24">
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+        <rect x="2" y="9" width="4" height="12" />
+        <circle cx="4" cy="4" r="2" />
+      </symbol>
+      <symbol id="i-twitter" viewBox="0 0 24 24">
+        <path
+          d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
+      </symbol>
+      <symbol id="i-facebook" viewBox="0 0 24 24">
+        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+      </symbol>
+      <symbol id="i-instagram" viewBox="0 0 24 24">
+        <rect x="2" y="2" width="20" height="20" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+      </symbol>
+      <symbol id="i-link" viewBox="0 0 24 24">
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+      </symbol>
+    </defs>
+  </svg>
+
+  <header>
+    <div class="nav-wrap">
+      <a href="index.html" class="logo" style="text-decoration: none;">
+        <img src="images/lexmart_logo.png" alt="Lexmart Logo" style="height:130px; width:auto; object-fit:contain;">
+      </a>
+      <nav class="links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <li class="nav-dropdown" style="list-style:none;">
+          <a href="service-corporate-law.html">Services <svg class="icon" style="width:14px;height:14px;">
+              <use href="#i-chevron" />
+            </svg></a>
+          <div class="nav-dropdown-menu">
+            <a href="service-corporate-law.html" class="dropdown-item">
+              <span class="di-icon"><svg class="icon" style="width:16px;height:16px;">
+                  <use href="#i-building" />
+                </svg></span>
+              <span class="di-text"><strong>Corporate Law</strong></span>
+            </a>
+            <a href="service-taxation.html" class="dropdown-item">
+              <span class="di-icon"><svg class="icon" style="width:16px;height:16px;">
+                  <use href="#i-calc" />
+                </svg></span>
+              <span class="di-text"><strong>Taxation</strong></span>
+            </a>
+            <a href="service-intellectual-property.html" class="dropdown-item">
+              <span class="di-icon"><svg class="icon" style="width:16px;height:16px;">
+                  <use href="#i-shield" />
+                </svg></span>
+              <span class="di-text"><strong>Intellectual Property</strong></span>
+            </a>
+            <a href="service-business-compliance.html" class="dropdown-item">
+              <span class="di-icon"><svg class="icon" style="width:16px;height:16px;">
+                  <use href="#i-lock" />
+                </svg></span>
+              <span class="di-text"><strong>Business Compliance</strong></span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="service-advisory.html" class="dropdown-item">
+              <span class="di-icon"><svg class="icon" style="width:16px;height:16px;">
+                  <use href="#i-zap" />
+                </svg></span>
+              <span class="di-text"><strong>Advisory & Startup Advisory</strong></span>
+            </a>
+          </div>
+        </li>
+        <a href="blogs.html" class="active">Blogs</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <a href="contact.html" class="btn-consult" style="
+        display:inline-flex;
+        align-items:center;
+        gap:8px;
+        padding:10px 20px;
+        background:linear-gradient(135deg,#062d80,#1f5cd4);
+        color:#fff;
+        font-size:14px;
+        font-weight:600;
+        border-radius:50px;
+        text-decoration:none;
+        white-space:nowrap;
+        box-shadow:0 4px 14px rgba(6,45,128,0.3);
+        transition:all .25s ease;
+      " onmouseover="this.style.boxShadow='0 6px 20px rgba(6,45,128,0.5)';this.style.transform='translateY(-1px)'" onmouseout="this.style.boxShadow='0 4px 14px rgba(6,45,128,0.3)';this.style.transform='translateY(0)'">
+        <svg style="width:15px;height:15px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Book a Consultation
+      </a>
+
+    </div>
+  <button class="hamburger" id="hamburgerBtn" aria-label="Open Menu"><span></span><span></span><span></span></button>
+</header>
+<nav class="mobile-nav" id="mobileNav" style="display:none"><button class="mobile-close" id="mobileClose" aria-label="Close Menu">&times;</button><a href="index.html">Home</a><a href="about.html">About</a><span class="mobile-services-title">Services</span><div class="mobile-sub-links"><a href="service-corporate-law.html">Corporate Law</a><a href="service-taxation.html">Taxation</a><a href="service-intellectual-property.html">Intellectual Property</a><a href="service-business-compliance.html">Business Compliance</a><a href="service-advisory.html">Advisory</a></div><a href="team.html">Team</a><a href="blogs.html">Blogs</a><a href="contact.html">Contact</a></nav><script>(function(){var btn=document.getElementById("hamburgerBtn");var nav=document.getElementById("mobileNav");var cl=document.getElementById("mobileClose");if(btn&&nav){btn.addEventListener("click",function(){nav.classList.toggle("open");btn.classList.toggle("open");document.body.style.overflow=nav.classList.contains("open")?"hidden":"";});if(cl)cl.addEventListener("click",function(){nav.classList.remove("open");btn.classList.remove("open");document.body.style.overflow="";});nav.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){nav.classList.remove("open");btn.classList.remove("open");document.body.style.overflow="";});});}})();</script>
+
+  <section class="bd-hero animate-fade-in">
+    <div class="container bd-hero-inner">
+      <div class="bd-meta animate-slide-up delay-100">
+        <span class="bd-tag">Corporate Compliance</span>
+        <span class="bd-date"><svg class="icon" style="width:14px;height:14px;">
+            <use href="#i-calendar" />
+          </svg> Oct 16, 2024</span>
+      </div>
+      <h1 class="animate-slide-up delay-200">Compounding of Offences Under the Companies Act, 2013: A Practical Guide
+      </h1>
+      <div class="bd-author animate-slide-up delay-300">
+        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=100"
+          alt="Author">
+        <span>By Rahul Sharma, Managing Partner</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="container animate-fade-in delay-300">
+    <div class="bd-layout">
+      <div class="bd-content">
+        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=1200"
+          alt="Corporate Compliance" class="feat-img">
+
+        <p>Corporate compliance is an ongoing responsibility for every company. However, companies may sometimes fail to
+          comply with certain provisions of the Companies Act, 2013 due to delayed filings, procedural lapses, or other
+          defaults.</p>
+        <p>In certain cases, such defaults may be addressed through compounding of offences, providing a mechanism for
+          resolving eligible offences upon payment of the prescribed compounding amount and completion of the required
+          compliances.</p>
+
+        <h2>What is Compounding?</h2>
+        <p>Compounding is a statutory mechanism through which an eligible offence under the Companies Act can be settled
+          by payment of a monetary amount, subject to the applicable provisions and approval of the competent authority.
+        </p>
+        <p>It is important to understand that not every offence can be compounded. The availability of compounding
+          depends on the nature of the offence and the applicable provisions of the Companies Act.</p>
+
+        <h2>When May Compounding Become Relevant?</h2>
+        <p>Compounding may become relevant where a company or its officers have committed certain offences that are
+          eligible for compounding. Common situations may include:</p>
+        <ul>
+          <li>Non-compliance with certain statutory requirements.</li>
+          <li>Delayed or incomplete statutory filings.</li>
+          <li>Procedural defaults under the Companies Act.</li>
+          <li>Continuing defaults that require regularisation.</li>
+          <li>Other eligible offences for which compounding is legally permissible.</li>
+        </ul>
+        <p>The specific applicability must be examined based on the facts of each case.</p>
+
+        <h2>Who Can Apply for Compounding?</h2>
+        <p>Depending on the nature of the default, the company and/or the officers in default may be required to make an
+          application for compounding before the competent authority, in accordance with the Companies Act and
+          applicable rules.</p>
+        <p>The appropriate authority depends upon the nature and statutory classification of the offence.</p>
+
+        <h2>General Process of Compounding</h2>
+        <p>The process generally involves the following steps:</p>
+
+        <h3>1. Identify the Default</h3>
+        <p>The first step is to review the company's records and identify the provisions that have been breached and the
+          period for which the default continues.</p>
+
+        <h3>2. Regularise Pending Compliance</h3>
+        <p>Where required, pending filings or other statutory compliances should be completed before or alongside the
+          compounding process, depending on the circumstances.</p>
+
+        <h3>3. Prepare the Compounding Application</h3>
+        <p>The necessary application, supporting documents, declarations and other prescribed documents are prepared
+          based on the facts of the case.</p>
+
+        <h3>4. Filing Before the Appropriate Authority</h3>
+        <p>The compounding application is filed before the authority having jurisdiction over the matter.</p>
+
+        <h3>5. Hearing and Submissions</h3>
+        <p>The concerned authority may seek additional information, documents or explanations. The company and its
+          representatives may be required to make submissions during the proceedings.</p>
+
+        <h3>6. Compounding Order</h3>
+        <p>If the application is accepted, the competent authority may pass an order specifying the applicable
+          compounding amount and other conditions.</p>
+
+        <h3>7. Post-Order Compliance</h3>
+        <p>The company must comply with the terms of the order, including payment of the prescribed amount and
+          completion of any consequential statutory requirements.</p>
+
+        <h2>Is Compounding the Same as Paying a Penalty?</h2>
+        <p>No. Compounding is a specific statutory mechanism for dealing with eligible offences. A penalty imposed under
+          the Companies Act and a compounding amount arise in different legal contexts and should not be treated as
+          interchangeable.</p>
+        <p>Whether a particular default requires penalty, compounding, adjudication, or another form of regularisation
+          depends on the relevant provision and facts.</p>
+
+        <h2>Why Should Companies Address Old Defaults?</h2>
+        <p>Ignoring historical defaults can create complications during:</p>
+        <ul>
+          <li>Fundraising and investment</li>
+          <li>Due diligence</li>
+          <li>Loans and financing</li>
+          <li>Change in management or directors</li>
+          <li>Corporate restructuring</li>
+          <li>Mergers or acquisitions</li>
+          <li>Sale or transfer of business</li>
+          <li>Other major corporate transactions</li>
+        </ul>
+        <p>Regularising historical non-compliances can therefore help a company maintain a cleaner statutory record and
+          reduce compliance-related obstacles.</p>
+
+        <h2>How Lexmart Can Help</h2>
+        <p>Lexmart Corporate Solutions LLP provides professional assistance in identifying and regularising corporate
+          compliance defaults. Our services may include:</p>
+        <ul>
+          <li>Review of historical ROC compliances</li>
+          <li>Identification of statutory defaults</li>
+          <li>Preparation of pending annual filings</li>
+          <li>Preparation and filing of compounding applications</li>
+          <li>Preparation of supporting documents and submissions</li>
+          <li>Liaison and follow-up with the concerned authorities</li>
+          <li>Assistance with hearings and clarifications, where required</li>
+          <li>Post-compounding compliance support</li>
+        </ul>
+        <p>We work with startups, entrepreneurs, SMEs and enterprises to help them address historical compliances and
+          establish a structured corporate compliance framework.</p>
+
+        <h2>Conclusion</h2>
+        <p>Historical corporate defaults should not simply be ignored. Where an offence is legally eligible for
+          compounding, the mechanism can provide a structured route towards regularisation and closure of the default.
+        </p>
+        <p>However, every case is fact-specific, and the applicability of compounding should be assessed after reviewing
+          the relevant provisions, nature of the offence, period of default and current compliance status.</p>
+
+        <div class="bd-quote">
+          <p>Have pending ROC compliances or historical defaults?<br><strong>Lexmart Corporate Solutions
+              LLP</strong><br>Legal | Compliance | Corporate Advisory<br>?? connect@lexmart.co.in</p>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="bd-sidebar">
+        <div class="sidebar-widget">
+          <h4>Recent Articles</h4>
+          <a href="#" class="recent-post">
+            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=150"
+              alt="Thumb">
+            <div class="rp-text">
+              <strong>Top 5 Tax Saving Strategies for Startups</strong>
+              <span>Sep 28, 2024</span>
+            </div>
+          </a>
+          <a href="#" class="recent-post">
+            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=150"
+              alt="Thumb">
+            <div class="rp-text">
+              <strong>Why Trademark Registration is Crucial</strong>
+              <span>Sep 15, 2024</span>
+            </div>
+          </a>
+          <a href="#" class="recent-post">
+            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=150"
+              alt="Thumb">
+            <div class="rp-text">
+              <strong>FEMA Compliance for FDI</strong>
+              <span>Aug 30, 2024</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="sidebar-widget">
+          <h4>Share this post</h4>
+          <div class="share-widget">
+            <a href="#" class="share-btn"><svg class="icon" style="width:18px;height:18px;">
+                <use href="#i-linkedin" />
+              </svg></a>
+            <a href="#" class="share-btn"><svg class="icon" style="width:18px;height:18px;">
+                <use href="#i-twitter" />
+              </svg></a>
+            <a href="#" class="share-btn"><svg class="icon" style="width:18px;height:18px;">
+                <use href="#i-facebook" />
+              </svg></a>
+            <a href="#" class="share-btn"><svg class="icon" style="width:18px;height:18px;">
+                <use href="#i-link" />
+              </svg></a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+    <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand -->
+        <div>
+          <a href="index.html" class="footer-logo" style="text-decoration: none;">
+            <img src="images/white_logo.png" alt="Lexmart Logo"
+              style="height:140px; width:auto; object-fit:contain; border-radius:8px;">
+          </a>
+          <p>Legal and business consulting for startups, SMEs, and enterprises &ndash; from incorporation to ongoing compliance.</p>
+          <div class="social-row">
+            <a class="social-circle" href="#"><svg class="icon" style="width:16px;height:16px;">
+                <use href="#i-linkedin" />
+              </svg></a>
+            <a class="social-circle" href="#"><svg class="icon" style="width:16px;height:16px;">
+                <use href="#i-twitter" />
+              </svg></a>
+            <a class="social-circle" href="#"><svg class="icon" style="width:16px;height:16px;">
+                <use href="#i-facebook" />
+              </svg></a>
+            <a class="social-circle" href="#"><svg class="icon" style="width:16px;height:16px;">
+                <use href="#i-instagram" />
+              </svg></a>
+          </div>
+        </div>
+        <!-- Company -->
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="service-corporate-law.html">Services</a></li>
+            <li><a href="blogs.html">Blogs</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <!-- Services -->
+        <div>
+          <h4>Services</h4>
+          <ul>
+            <li><a href="service-corporate-law.html">Corporate Law</a></li>
+            <li><a href="service-taxation.html">Taxation</a></li>
+            <li><a href="service-intellectual-property.html">Intellectual Property</a></li>
+            <li><a href="service-business-compliance.html">Business Compliance</a></li>
+            <li><a href="service-advisory.html">Advisory &amp; Startup Advisory</a></li>
+          </ul>
+        </div>
+        <!-- Policies -->
+        <div>
+          <h4>Policies</h4>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-conditions.html">Terms &amp; Conditions</a></li>
+            <li><a href="cookie-policy.html">Cookie Policy</a></li>
+          </ul>
+        </div>
+        <!-- Contact -->
+        <div>
+          <h4>Contact Us</h4>
+          <ul class="contact-list">
+            <li><svg class="icon">
+                <use href="#i-phone" />
+              </svg><span><a href="tel:+919999028148">+91 99990-28148</a><br><a href="tel:+919811541004">+91 98115-41004</a></span></li>
+            <li><svg class="icon">
+                <use href="#i-mail" />
+              </svg><span><a href="mailto:connect@lexmart.co.in">connect@lexmart.co.in</a></span></li>
+            <li><svg class="icon">
+                <use href="#i-pin" />
+              </svg><span><span style="white-space:nowrap;">Lexmart Corporate Solutions LLP</span><br>I-23, L.G.F., Lajpat Nagar- III,<br>New Delhi- 110024.</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2024 Lexmart Corporate Solutions LLP. All rights reserved.</span>
+        <span>Built for founders who move fast.</span>
+        <span>Developed by Brand Mindz</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>

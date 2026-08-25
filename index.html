@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexmart | Legal & Business Advisors</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* -- Moving Blue Gradient Animation -- */
+    @keyframes moveGradient {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* Update Process steps for 3D glossy moving blue */
+    .process-num {
+      background: linear-gradient(270deg, #061c73, #153bc7, #8cb9ff, #153bc7, #061c73) !important;
+      background-size: 200% 200% !important;
+      animation: moveGradient 5s ease infinite !important;
+      box-shadow: 0 4px 12px rgba(6, 28, 115, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.5);
+      color: #fff;
+    }
+
+    /* CTA Banner 3D glossy moving blue */
+    .cta-banner {
+      background: linear-gradient(270deg, #020b33, #061c73, #153bc7, #8cb9ff, #153bc7, #061c73, #020b33) !important;
+      background-size: 300% 300% !important;
+      animation: moveGradient 8s ease infinite !important;
+      box-shadow: 0 20px 60px rgba(2, 11, 51, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .cta-banner::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      background: radial-gradient(ellipse at top, rgba(255, 255, 255, 0.25) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .cta-banner h2 {
+      text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+      z-index: 2;
+      position: relative;
+    }
+
+    .cta-banner p {
+      z-index: 2;
+      position: relative;
+      color: rgba(255, 255, 255, 0.9) !important;
+    }
+
+    .cta-banner .btn {
+      z-index: 2;
+      position: relative;
+    }
+
+    /* Services Section & Why Cards - Moving Glossy Blue */
+    .service-card .hover-details {
+      background: linear-gradient(270deg, #020b33, #061c73, #153bc7, #8cb9ff, #153bc7, #061c73, #020b33) !important;
+      background-size: 300% 300% !important;
+      animation: moveGradient 8s ease infinite !important;
+    }
+
+    .service-card .icon-badge,
+    .why-card .icon-badge {
+      background: linear-gradient(270deg, #061c73, #153bc7, #8cb9ff, #153bc7, #061c73) !important;
+      background-size: 200% 200% !important;
+      animation: moveGradient 5s ease infinite !important;
+      color: #fff !important;
+      border: none !important;
+    }
+
+    .service-card:hover .icon-badge,
+    .why-card:hover .icon-badge {
+      background: linear-gradient(270deg, #020b33, #061c73, #153bc7, #061c73, #020b33) !important;
+      background-size: 300% 300% !important;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Icon library (hidden, referenced via <use>) -->
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <symbol id="i-scale" viewBox="0 0 24 24">
+        <path d="M12 3v18M5 7h14M5 7 2 13a3 3 0 0 0 6 0zM19 7l-3 6a3 3 0 0 0 6 0zM8 21h8" />
+      </symbol>
+      <symbol id="i-building" viewBox="0 0 24 24">
+        <rect x="4" y="3" width="16" height="18" rx="1" />
+        <path d="M9 21v-4h6v4M9 8h1M14 8h1M9 12h1M14 12h1M9 16h1M14 16h1" />
+      </symbol>
+      <symbol id="i-calc" viewBox="0 0 24 24">
+        <rect x="4" y="2" width="16" height="20" rx="2" />
+        <line x1="8" y1="6" x2="16" y2="6" />
+        <circle cx="8" cy="10.5" r=".6" fill="currentColor" stroke="none" />
+        <circle cx="12" cy="10.5" r=".6" fill="currentColor" stroke="none" />
+        <circle cx="16" cy="10.5" r=".6" fill="currentColor" stroke="none" />
+        <circle cx="8" cy="14.5" r=".6" fill="currentColor" stroke="none" />
+        <circle cx="12" cy="14.5" r=".6" fill="currentColor" stroke="none" />
+        <circle cx="16" cy="14.5" r=".6" fill="currentColor" stroke="none" />
+        <circle cx="8" cy="18.5" r=".6" fill="currentColor" stroke="none" />
+        <circle cx="12" cy="18.5" r=".6" fill="currentColor" stroke="none" />
+        <circle cx="16" cy="18.5" r=".6" fill="currentColor" stroke="none" />
+      </symbol>
+      <symbol id="i-bulb" viewBox="0 0 24 24">
+        <path
+          d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2.05V17h6v-.25c0-.85.4-1.55 1-2.05A7 7 0 0 0 12 2Z" />
+      </symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24">
+        <path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5Z" />
+        <path d="m9 12 2 2 4-4" />
+      </symbol>
+      <symbol id="i-rocket" viewBox="0 0 24 24">
+        <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+        <path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+        <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
+        <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+      </symbol>
+      <symbol id="i-users" viewBox="0 0 24 24">
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+        <circle cx="9" cy="7" r="4" />
+        <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+      </symbol>
+      <symbol id="i-zap" viewBox="0 0 24 24">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+      </symbol>
+      <symbol id="i-rupee" viewBox="0 0 24 24">
+        <path d="M7 4h10M7 9h10M7 4c4 0 6 2 6 4.5S11 13 7 13l7 8" />
+      </symbol>
+      <symbol id="i-headset" viewBox="0 0 24 24">
+        <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
+        <path
+          d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
+      </symbol>
+      <symbol id="i-lock" viewBox="0 0 24 24">
+        <rect x="3" y="11" width="18" height="11" rx="2" />
+        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+      </symbol>
+      <symbol id="i-award" viewBox="0 0 24 24">
+        <circle cx="12" cy="8" r="6" />
+        <path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5" />
+      </symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24">
+        <line x1="5" y1="12" x2="19" y2="12" />
+        <polyline points="12 5 19 12 12 19" />
+      </symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24">
+        <polyline points="6 9 12 15 18 9" />
+      </symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24">
+        <path
+          d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+      </symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24">
+        <rect x="2" y="4" width="20" height="16" rx="2" />
+        <path d="m2 7 10 6 10-6" />
+      </symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+        <circle cx="12" cy="10" r="3" />
+      </symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24">
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+        <rect x="2" y="9" width="4" height="12" />
+        <circle cx="4" cy="4" r="2" />
+      </symbol>
+      <symbol id="i-twitter" viewBox="0 0 24 24">
+        <path
+          d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
+      </symbol>
+      <symbol id="i-facebook" viewBox="0 0 24 24">
+        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+      </symbol>
+      <symbol id="i-instagram" viewBox="0 0 24 24">
+        <rect x="2" y="2" width="20" height="20" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+      </symbol>
+      <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+        <line x1="16" y1="2" x2="16" y2="6"></line>
+        <line x1="8" y1="2" x2="8" y2="6"></line>
+        <line x1="3" y1="10" x2="21" y2="10"></line>
+      </symbol>
+      <symbol id="i-shield-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        <path d="M9 12l2 2 4-4"></path>
+      </symbol>
+      <symbol id="i-handshake" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="m11 17 2 2a1 1 0 1 0 3-3" />
+        <path
+          d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" />
+        <path d="m21 3-6 6" />
+        <path d="m22 14-4 4" />
+        <path d="m3 21 6-6" />
+        <path d="m8 21 4-4" />
+        <path d="m5 17 4-4" />
+        <path d="M11 21v-2" />
+      </symbol>
+      <symbol id="i-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+        <polyline points="14 2 14 8 20 8"></polyline>
+        <line x1="16" y1="13" x2="8" y2="13"></line>
+        <line x1="16" y1="17" x2="8" y2="17"></line>
+        <polyline points="10 9 9 9 8 9"></polyline>
+      </symbol>
+    </defs>
+  </svg>
+
+  <header>
+    <div class="nav-wrap">
+      <a href="index.html" class="logo" style="text-decoration: none;">
+        <img src="images/lexmart_logo.png" alt="Lexmart Logo" style="height:130px; width:auto; object-fit:contain;">
+      </a>
+      <nav class="links">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <li class="nav-dropdown" style="list-style:none;">
+          <a href="service-corporate-law.html">Services <svg class="icon" style="width:14px;height:14px;">
+              <use href="#i-chevron" />
+            </svg></a>
+          <div class="nav-dropdown-menu">
+            <a href="service-corporate-law.html" class="dropdown-item">
+              <span class="di-icon"><svg class="icon" style="width:16px;height:16px;">
+                  <use href="#i-building" />
+                </svg></span>
+              <span class="di-text"><strong>Corporate Law</strong></span>
+            </a>
+            <a href="service-taxation.html" class="dropdown-item">
+              <span class="di-icon"><svg class="icon" style="width:16px;height:16px;">
+                  <use href="#i-rupee" />
+                </svg></span>
+              <span class="di-text"><strong>Taxation</strong></span>
+            </a>
+            <a href="service-intellectual-property.html" class="dropdown-item">
+              <span class="di-icon"><svg class="icon" style="width:16px;height:16px;">
+                  <use href="#i-shield" />
+                </svg></span>
+              <span class="di-text"><strong>Intellectual Property</strong></span>
+            </a>
+            <a href="service-business-compliance.html" class="dropdown-item">
+              <span class="di-icon"><svg class="icon" style="width:16px;height:16px;">
+                  <use href="#i-lock" />
+                </svg></span>
+              <span class="di-text"><strong>Business Compliance</strong></span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="service-advisory.html" class="dropdown-item">
+              <span class="di-icon"><svg class="icon" style="width:16px;height:16px;">
+                  <use href="#i-zap" />
+                </svg></span>
+              <span class="di-text"><strong>Advisory & Startup Advisory</strong></span>
+            </a>
+          </div>
+        </li>
+        <a href="team.html">Team</a>
+        <a href="blogs.html">Blogs</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <a href="contact.html" class="btn-consult" style="
+        display:inline-flex;
+        align-items:center;
+        gap:8px;
+        padding:10px 20px;
+        background:linear-gradient(135deg,#062d80,#1f5cd4);
+        color:#fff;
+        font-size:14px;
+        font-weight:600;
+        border-radius:50px;
+        text-decoration:none;
+        white-space:nowrap;
+        box-shadow:0 4px 14px rgba(6,45,128,0.3);
+        transition:all .25s ease;
+      " onmouseover="this.style.boxShadow='0 6px 20px rgba(6,45,128,0.5)';this.style.transform='translateY(-1px)'" onmouseout="this.style.boxShadow='0 4px 14px rgba(6,45,128,0.3)';this.style.transform='translateY(0)'">
+        <svg style="width:15px;height:15px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Book a Consultation
+      </a>
+
+    </div>
+  <button class="hamburger" id="hamburgerBtn" aria-label="Open Menu"><span></span><span></span><span></span></button>
+</header>
+<nav class="mobile-nav" id="mobileNav" style="display:none"><button class="mobile-close" id="mobileClose" aria-label="Close Menu">&times;</button><a href="index.html">Home</a><a href="about.html">About</a><span class="mobile-services-title">Services</span><div class="mobile-sub-links"><a href="service-corporate-law.html">Corporate Law</a><a href="service-taxation.html">Taxation</a><a href="service-intellectual-property.html">Intellectual Property</a><a href="service-business-compliance.html">Business Compliance</a><a href="service-advisory.html">Advisory</a></div><a href="team.html">Team</a><a href="blogs.html">Blogs</a><a href="contact.html">Contact</a></nav><script>(function(){var btn=document.getElementById("hamburgerBtn");var nav=document.getElementById("mobileNav");var cl=document.getElementById("mobileClose");if(btn&&nav){btn.addEventListener("click",function(){nav.classList.toggle("open");btn.classList.toggle("open");document.body.style.overflow=nav.classList.contains("open")?"hidden":"";});if(cl)cl.addEventListener("click",function(){nav.classList.remove("open");btn.classList.remove("open");document.body.style.overflow="";});nav.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){nav.classList.remove("open");btn.classList.remove("open");document.body.style.overflow="";});});}})();</script>
+
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="animate-slide-up">
+        <span class="eyebrow"><svg class="icon" style="width:14px;height:14px;fill:currentColor;stroke:none;"
+            viewBox="0 0 24 24">
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+          </svg> EXPERT LEGAL & BUSINESS ADVISORS</span>
+        <h1><span class="hero-black">Simplifying Compliance.</span><br>Strengthening Your<br><span class="accent">Business.</span></h1>
+        <p>Empowering startups, entrepreneurs, SMEs, and enterprises with end-to-end legal, compliance, and advisory
+          solutions so you can focus on what matters most &mdash; growing your business.</p>
+        <div class="hero-ctas">
+          <button class="btn btn-outline">Explore Services <svg class="icon" style="width:16px;height:16px;">
+              <use href="#i-arrow" />
+            </svg></button>
+        </div>
+        <div class="hero-rating">
+          <div class="rating-group">
+            <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span>Trusted by 500+ Businesses</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual-new animate-fade-in delay-200">
+        <img src="images/lexmart_banner.png" alt="Lexmart Banner" class="hero-img">
+
+        <div class="floating-cards-container">
+          <div class="float-card-new animate-slide-up delay-300">
+            <div class="icon-box"><svg class="icon">
+                <use href="#i-building" />
+              </svg></div>
+            <div class="card-text"><strong>500+</strong><span>Company Registrations</span></div>
+          </div>
+          <div class="float-card-new">
+            <div class="icon-box"><svg class="icon">
+                <use href="#i-shield-check" />
+              </svg></div>
+            <div class="card-text"><strong>98%</strong><span>Trademark Success Rate</span></div>
+          </div>
+          <div class="float-card-new">
+            <div class="icon-box"><svg class="icon">
+                <use href="#i-doc" />
+              </svg></div>
+            <div class="card-text"><strong>1000+</strong><span>GST &amp; Compliance<br>Cases Handled</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container stats-strip">
+    <div class="stats-row-new">
+      <div class="stat-card-new animate-slide-up delay-100">
+        <div class="stat-icon"><svg class="icon">
+            <use href="#i-users" />
+          </svg></div>
+        <div class="stat-content">
+          <strong>10+<br>Years of Experience</strong>
+          <p>Delivering trusted legal solutions since 2014.</p>
+        </div>
+      </div>
+      <div class="stat-card-new animate-slide-up delay-200">
+        <div class="stat-icon"><svg class="icon">
+            <use href="#i-shield-check" />
+          </svg></div>
+        <div class="stat-content">
+          <strong>Expert Legal Team</strong>
+          <p>Experienced advocates & advisors across domains.</p>
+        </div>
+      </div>
+      <div class="stat-card-new animate-slide-up delay-300">
+        <div class="stat-icon"><svg class="icon">
+            <use href="#i-handshake" />
+          </svg></div>
+        <div class="stat-content">
+          <strong>Business Focused</strong>
+          <p>Practical, strategic & result-driven legal approach.</p>
+        </div>
+      </div>
+      <div class="stat-card-new animate-slide-up delay-400">
+        <div class="stat-icon"><svg class="icon">
+            <use href="#i-headset" />
+          </svg></div>
+        <div class="stat-content">
+          <strong>End-to-End Support</strong>
+          <p>From registration to compliance � we've got you covered.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="bg-tint">
+    <div class="container">
+      <div class="center"><span class="eyebrow">WHAT WE DO</span></div>
+      <h2 class="section-title">Our Legal Services</h2>
+      <p class="section-sub">End-to-end legal and compliance expertise, delivered with the precision and clarity modern
+        businesses expect.</p>
+      <div class="services-grid" style="grid-template-columns: repeat(4,1fr);">
+
+        <!-- Card 1 -->
+        <div class="service-card">
+          <div class="icon-badge"><svg class="icon">
+              <use href="#i-building" />
+            </svg></div>
+          <h3>Corporate Governance &amp; Secretarial</h3>
+          <ul>
+            <li>Company Incorporation</li>
+            <li>ROC/MCA Compliance</li>
+            <li>Secretarial Services</li>
+            <li>ESOP Structuring</li>
+          </ul>
+          <div class="hover-details">
+            <h4>Detailed Services:</h4>
+            <ul>
+              <li>Company Incorporation &amp; Corporate Structuring</li>
+              <li>LLP &amp; Other Entity Formation</li>
+              <li>Corporate Secretarial Services</li>
+              <li>Board, Committee &amp; General Meeting Management</li>
+              <li>Notices, Agendas, Minutes &amp; Resolutions</li>
+              <li>Statutory Registers &amp; Secretarial Records</li>
+              <li>Annual ROC/MCA Compliance</li>
+              <li>Event-Based ROC Filings</li>
+              <li>MCA &amp; Regulatory Filings</li>
+              <li>Corporate Governance Advisory</li>
+              <li>Compliance Calendar &amp; Monitoring</li>
+              <li>Share Capital Alterations &amp; Corporate Actions</li>
+              <li>Issue &amp; Allotment of Securities</li>
+              <li>Dematerialisation, ISIN &amp; NSDL/CDSL Coordination</li>
+              <li>ESOP Structuring &amp; Compliance</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="service-card">
+          <div class="icon-badge"><svg class="icon">
+              <use href="#i-doc" />
+            </svg></div>
+          <h3>Corporate Legal Advisory</h3>
+          <ul>
+            <li>Contract Drafting</li>
+            <li>SHA / SPA / JVA</li>
+            <li>Employment Law</li>
+            <li>Real Estate Docs</li>
+          </ul>
+          <div class="hover-details">
+            <h4>Detailed Services:</h4>
+            <ul>
+              <li>Corporate &amp; Commercial Legal Advisory</li>
+              <li>Legal Opinions</li>
+              <li>Contract Drafting, Review &amp; Negotiation</li>
+              <li>NDA, MOU &amp; Service Agreements</li>
+              <li>Vendor &amp; Customer Agreements</li>
+              <li>Employment Agreements &amp; HR Policies</li>
+              <li>Shareholders' Agreements (SHA)</li>
+              <li>Share Purchase Agreements (SPA)</li>
+              <li>Joint Venture Agreements (JVA)</li>
+              <li>Investment Agreements</li>
+              <li>Labour &amp; Employment Law Advisory</li>
+              <li>POSH &amp; Workplace Compliance</li>
+              <li>Consumer &amp; E-commerce Legal Advisory</li>
+              <li>Real Estate Documentation</li>
+              <li>Succession Planning, Wills &amp; Estate Documentation</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="service-card">
+          <div class="icon-badge"><svg class="icon">
+              <use href="#i-shield" />
+            </svg></div>
+          <h3>Regulatory Compliance &amp; Risk</h3>
+          <ul>
+            <li>FEMA &amp; RBI Review</li>
+            <li>SEBI Compliance</li>
+            <li>Risk Assessment</li>
+            <li>Compliance Training</li>
+          </ul>
+          <div class="hover-details">
+            <h4>Detailed Services:</h4>
+            <ul>
+              <li>Corporate Law Compliance Review</li>
+              <li>FEMA &amp; RBI Compliance Review</li>
+              <li>SEBI Compliance Review</li>
+              <li>Direct &amp; Indirect Tax Compliance Review</li>
+              <li>State &amp; Industry-Specific Compliance Review</li>
+              <li>Regulatory Gap Assessment</li>
+              <li>Compliance Risk Assessment</li>
+              <li>Regulatory Due Diligence</li>
+              <li>Internal Control Assessment</li>
+              <li>Compliance Management Framework</li>
+              <li>Compliance Calendar Review</li>
+              <li>Compliance Management System Implementation</li>
+              <li>Compliance Reports &amp; Corrective Action Plans</li>
+              <li>Regulatory Readiness Assessment</li>
+              <li>Compliance Training &amp; Awareness</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="service-card">
+          <div class="icon-badge"><svg class="icon">
+              <use href="#i-calc" />
+            </svg></div>
+          <h3>Tax, Accounting &amp; Assurance</h3>
+          <ul>
+            <li>GST &amp; Income Tax</li>
+            <li>Bookkeeping</li>
+            <li>TDS Compliance</li>
+            <li>Transfer Pricing</li>
+          </ul>
+          <div class="hover-details">
+            <h4>Detailed Services:</h4>
+            <ul>
+              <li>Accounting &amp; Bookkeeping</li>
+              <li>Tally, Zoho, SAP, Oracle &amp; ERP Accounting</li>
+              <li>Financial Statements (I-GAAP, Ind AS &amp; IFRS)</li>
+              <li>Income Tax Returns</li>
+              <li>GST Compliance &amp; Returns</li>
+              <li>TDS Compliance &amp; Returns</li>
+              <li>Direct &amp; Indirect Tax Advisory</li>
+              <li>Income Tax &amp; GST Assessments</li>
+              <li>Tax Refunds &amp; Demand Notices</li>
+              <li>Tax Litigation Support</li>
+              <li>Form 15CA/15CB</li>
+              <li>Non-resident Form 10F Filing</li>
+              <li>Outward Remittance Compliance</li>
+              <li>Transfer Pricing Study Report</li>
+              <li>Letter of Undertaking (LUT)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="service-card">
+          <div class="icon-badge"><svg class="icon">
+              <use href="#i-lock" />
+            </svg></div>
+          <h3>Business Registration &amp; Licensing</h3>
+          <ul>
+            <li>Company Registration</li>
+            <li>GST &amp; MSME</li>
+            <li>FSSAI &amp; IEC</li>
+            <li>Trade Licences</li>
+          </ul>
+          <div class="hover-details">
+            <h4>Detailed Services:</h4>
+            <ul>
+              <li>Indian &amp; Foreign Company Registration</li>
+              <li>LLP &amp; Partnership Firm Registration</li>
+              <li>Trust &amp; Society Registration</li>
+              <li>Startup India / DPIIT Recognition</li>
+              <li>MSME / Udyam Registration</li>
+              <li>Legal Entity Identifier (LEI)</li>
+              <li>GST Registration &amp; Amendments</li>
+              <li>FSSAI Registration &amp; Licensing</li>
+              <li>IEC Registration</li>
+              <li>PAN/TAN Registration</li>
+              <li>12A &amp; 80G Registration</li>
+              <li>Trade Licences &amp; Municipal Registrations</li>
+              <li>Factory Licence &amp; Industrial Approvals</li>
+              <li>FCRA Registration</li>
+              <li>Government Liaison (RBI, Income Tax Dept.)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="service-card">
+          <div class="icon-badge"><svg class="icon">
+              <use href="#i-rocket" />
+            </svg></div>
+          <h3>Transactions, M&amp;A &amp; Restructuring</h3>
+          <ul>
+            <li>Mergers &amp; Acquisitions</li>
+            <li>Due Diligence</li>
+            <li>NCLT Matters</li>
+            <li>Liquidation</li>
+          </ul>
+          <div class="hover-details">
+            <h4>Detailed Services:</h4>
+            <ul>
+              <li>Mergers &amp; Acquisitions</li>
+              <li>Corporate Restructuring &amp; Demergers</li>
+              <li>Business Reorganisation</li>
+              <li>Transaction Advisory &amp; Deal Structuring</li>
+              <li>Investment Transactions</li>
+              <li>Legal &amp; Transaction Due Diligence</li>
+              <li>Fundraising Advisory</li>
+              <li>Joint Ventures &amp; Strategic Alliances</li>
+              <li>NCLT Matters</li>
+              <li>Regional Director Approvals</li>
+              <li>Compounding of Offences</li>
+              <li>Condonation of Delay</li>
+              <li>Voluntary Liquidation</li>
+              <li>Strike-Off &amp; Winding-Up Assistance</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="service-card">
+          <div class="icon-badge"><svg class="icon">
+              <use href="#i-zap" />
+            </svg></div>
+          <h3>Capital Markets, FEMA &amp; SEBI</h3>
+          <ul>
+            <li>FDI &amp; ODI Advisory</li>
+            <li>SEBI Compliance</li>
+            <li>IPO Advisory</li>
+            <li>International Business</li>
+          </ul>
+          <div class="hover-details">
+            <h4>Detailed Services:</h4>
+            <ul>
+              <li>FEMA Advisory &amp; Reporting</li>
+              <li>FDI Compliance</li>
+              <li>ODI Compliance</li>
+              <li>RBI Approvals</li>
+              <li>Foreign Investment Advisory</li>
+              <li>SEBI Compliance</li>
+              <li>Listed Entity Compliance</li>
+              <li>SEBI (LODR) Compliance</li>
+              <li>IPO Advisory</li>
+              <li>Securities Issuance</li>
+              <li>Share Capital &amp; Corporate Actions</li>
+              <li>Valuation Support</li>
+              <li>XBRL Filings</li>
+              <li>Stamp Duty Adjudication</li>
+              <li>International Business / India Entry Advisory</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">Why Choose Lexmart</h2>
+      <p class="section-sub">A modern legal partner built around responsiveness, clarity, and outcomes.</p>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="icon-badge"><svg class="icon">
+              <use href="#i-building" />
+            </svg></div>
+          <h3>One Stop Solution</h3>
+          <p>We provide a full range of legal, compliance and financial solutions required for a business under one
+            roof.</p>
+        </div>
+        <div class="why-card">
+          <div class="icon-badge"><svg class="icon">
+              <use href="#i-users" />
+            </svg></div>
+          <h3>Human Resource</h3>
+          <p>Highly experienced, motivated, and dedicated team members delivering value with speed and efficiency.</p>
+        </div>
+        <div class="why-card">
+          <div class="icon-badge"><svg class="icon">
+              <use href="#i-handshake" />
+            </svg></div>
+          <h3>Client Centric</h3>
+          <p>Customized services based on client needs. Every client receives a high level of personal attention.</p>
+        </div>
+        <div class="why-card">
+          <div class="icon-badge"><svg class="icon">
+              <use href="#i-pin" />
+            </svg></div>
+          <h3>PAN India Service</h3>
+          <p>A strong network of associates across India, giving us an edge for completing transactions anywhere.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="bg-tint">
+    <div class="container">
+      <h2 class="section-title">Our Process</h2>
+      <p class="section-sub">Five clear steps from first conversation to continuous compliance.</p>
+      <div class="process-grid">
+        <div class="process-step">
+          <div class="process-num">1</div>
+          <h3>Initial Consultation</h3>
+          <p>Understand your goals and legal exposure.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">2</div>
+          <h3>Document Collection</h3>
+          <p>Secure checklist and guided upload.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">3</div>
+          <h3>Legal Review</h3>
+          <p>Expert vetting and drafting of filings.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">4</div>
+          <h3>Registration &amp; Filing</h3>
+          <p>Submission and follow-up with authorities.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">5</div>
+          <h3>Business Compliance</h3>
+          <p>Ongoing calendars, renewals, and reporting.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: 60px 0; background: var(--white);">
+    <div class="container">
+      <div style="position: relative; max-width: 1172px; margin: 0 auto; background: linear-gradient(135deg, #062d80, #1f5cd4); border-radius: 26px; padding: 70px 24px; text-align: center; color: #fff; overflow: hidden; box-shadow: 0 20px 40px rgba(6, 45, 128, 0.2);">
+        
+        <!-- Decorative bg -->
+        <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: rgba(255,255,255,0.05); border-radius: 50%; pointer-events: none;"></div>
+        <div style="position: absolute; bottom: -80px; left: -20px; width: 250px; height: 250px; border: 40px solid rgba(255,255,255,0.03); border-radius: 50%; pointer-events: none;"></div>
+
+        <div style="position: relative; z-index: 2;">
+          <span class="eyebrow" style="background: rgba(255,255,255,0.2); color: #fff; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 20px;">FREE ASSESSMENT</span>
+          <h2 style="color: #fff; font-size: 35.2px; margin-bottom: 16px; font-family: 'Poppins', sans-serif;">Business Health Check-up</h2>
+          <p style="color: rgba(255,255,255,0.9); font-size: 16.5px; max-width: 640px; margin: 0 auto 30px; line-height: 1.6;">
+            Are you fully compliant? Is your business legally protected? Take our free health check-up to identify any regulatory gaps or legal vulnerabilities before they become problems.
+          </p>
+          
+          <div style="background: rgba(0,0,0,0.15); padding: 24px; border-radius: 14px; border: 1px dashed rgba(255,255,255,0.2); max-width: 500px; margin: 0 auto 30px;">
+            <div style="display: flex; justify-content: center; margin-bottom: 12px;">
+              <svg class="icon" style="width: 32px; height: 32px; color: #fff;"><use href="#i-shield-check" /></svg>
+            </div>
+            <p style="color: #fff; margin-bottom: 0; font-size: 15.4px; font-weight: 500;">
+              Our comprehensive assessment questionnaire is coming soon.
+            </p>
+            <p style="color: rgba(255,255,255,0.7); font-size: 13.2px; margin-top: 6px; margin-bottom: 0;">
+              In the meantime, reach out to us for a direct assessment.
+            </p>
+          </div>
+          
+          <a href="contact.html" class="btn btn-white" style="font-size: 15.4px; display: inline-flex;">
+            Contact Us <svg class="icon" style="width:16px;height:16px;"><use href="#i-arrow" /></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Removed redundant featured services section -->
+
+  <!-- ══════════════════════════════════
+     TRUSTED CLIENTS SECTION
+══════════════════════════════════ -->
+  <section class="clients-section">
+    <style>
+      .clients-section {
+        padding: 80px 0;
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/Our Clients.webp') center/cover no-repeat;
+        overflow: hidden;
+      }
+
+      .clients-header {
+        text-align: center;
+        margin-bottom: 52px;
+      }
+
+      .clients-header .eyebrow {
+        margin-bottom: 14px;
+        background: rgba(255, 255, 255, 0.15);
+        color: #ffffff;
+        border-color: rgba(255, 255, 255, 0.25);
+      }
+
+      .clients-header h2 {
+        font-size: 34px;
+        font-weight: 800;
+        color: #ffffff;
+        margin-bottom: 10px;
+      }
+
+      .clients-header h2 span {
+        color: #d6e4ff;
+      }
+
+      .clients-header p {
+        font-size: 15px;
+        color: rgba(255, 255, 255, 0.75);
+        max-width: 480px;
+        margin: 0 auto;
+      }
+
+      .clients-counter {
+        display: flex;
+        justify-content: center;
+        gap: 48px;
+        margin-bottom: 52px;
+        flex-wrap: wrap;
+      }
+
+      .clients-counter-item {
+        text-align: center;
+      }
+
+      .clients-counter-item strong {
+        display: block;
+        font-family: 'Poppins', sans-serif;
+        font-size: 30px;
+        font-weight: 800;
+        color: #ffffff;
+        line-height: 1;
+      }
+
+      .clients-counter-item span {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.7);
+        font-weight: 500;
+      }
+
+      /* Marquee wrapper */
+      .marquee-wrapper {
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Fade edges */
+      .marquee-wrapper::before,
+      .marquee-wrapper::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 140px;
+        z-index: 2;
+        pointer-events: none;
+      }
+
+      .marquee-wrapper::before {
+        left: 0;
+        background: linear-gradient(to right, #0C46BB 0%, transparent 100%);
+      }
+
+      .marquee-wrapper::after {
+        right: 0;
+        background: linear-gradient(to left, #0C46BB 0%, transparent 100%);
+      }
+
+      .marquee-track {
+        display: flex;
+        gap: 16px;
+        width: max-content;
+        margin-bottom: 16px;
+      }
+
+      .marquee-track.row1 {
+        animation: marquee-left 40s linear infinite;
+      }
+
+      .marquee-track.row2 {
+        animation: marquee-right 36s linear infinite;
+      }
+
+      .marquee-track:hover {
+        animation-play-state: paused;
+      }
+
+      @keyframes marquee-left {
+        0% {
+          transform: translateX(0);
+        }
+
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      @keyframes marquee-right {
+        0% {
+          transform: translateX(-50%);
+        }
+
+        100% {
+          transform: translateX(0);
+        }
+      }
+
+      /* Logo card */
+      .client-card {
+        flex-shrink: 0;
+        width: 172px;
+        height: 100px;
+        background: #ffffff;
+        border: 1.5px solid rgba(255, 255, 255, 0.3);
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 18px;
+        transition: border-color .25s ease, box-shadow .25s ease, transform .25s ease;
+        cursor: default;
+      }
+
+      .client-card:hover {
+        border-color: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        transform: translateY(-3px);
+      }
+
+      .client-card .client-inner {
+        text-align: center;
+        line-height: 1.25;
+      }
+
+      .client-card .client-name {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: 13.5px;
+        color: #0f172a;
+        display: block;
+      }
+
+      .client-card .client-sub {
+        font-size: 10px;
+        color: #475569;
+        display: block;
+        margin-top: 3px;
+        font-weight: 500;
+      }
+
+      /* Coloured accent logos */
+      .client-card.dark {
+        background: #062d80;
+        border-color: #062d80;
+      }
+
+      .client-card.dark .client-name {
+        color: #ffffff;
+      }
+
+      .client-card.dark .client-sub {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .client-card.teal {
+        background: #0a3da8;
+        border-color: #0a3da8;
+      }
+
+      .client-card.teal .client-name {
+        color: #ffffff;
+      }
+
+      .client-card.teal .client-sub {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .client-card.navy {
+        background: #062d80;
+        border-color: #062d80;
+      }
+
+      .client-card.navy .client-name {
+        color: #ffffff;
+      }
+
+      .client-card.navy .client-sub {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .client-card .client-accent {
+        display: inline-block;
+        font-size: 22px;
+        font-weight: 800;
+        font-family: 'Poppins', sans-serif;
+        line-height: 1;
+        margin-bottom: 4px;
+      }
+    </style>
+
+    <div class="container clients-header">
+      <span class="eyebrow">OUR CLIENTS</span>
+      <h2>Trusted by <span>500+ Businesses</span> Across India</h2>
+      <p>From day-one startups to listed enterprises � leaders across every industry rely on Lexmart.</p>
+    </div>
+
+    <div class="clients-counter">
+      <div class="clients-counter-item"><strong>500+</strong><span>Clients Served</span></div>
+      <div class="clients-counter-item"><strong>20+</strong><span>Industries</span></div>
+      <div class="clients-counter-item"><strong>PAN India</strong><span>Reach</span></div>
+      <div class="clients-counter-item"><strong>10+</strong><span>Years of Trust</span></div>
+    </div>
+
+    <!-- Row 1 � scrolls left -->
+    <div class="marquee-wrapper" style="margin-bottom:16px;">
+      <div class="marquee-track row1">
+        <!-- Set 1 -->
+        <div class="client-card dark">
+          <div class="client-inner"><span class="client-accent" style="color:#0C46BB;">RAJ ARORA</span><span
+              class="client-name" style="color:#0C46BB;">ROOP VATIKA</span></div>
+        </div>
+        <div class="client-card">
+          <div class="client-inner"><span class="client-accent" style="color:#0C46BB;font-size:18px;">NOVA</span><span
+              class="client-sub">Dairy Products</span></div>
+        </div>
+        <div class="client-card teal">
+          <div class="client-inner"><span class="client-name">पावरग्रिड</span><span
+              class="client-sub">POWERGRID</span></div>
+        </div>
+        <div class="client-card">
+          <div class="client-inner"><span class="client-accent"
+              style="color:#0C46BB;font-size:16px;">VARDHMAN</span><span class="client-sub">Airport Solutions</span>
+          </div>
+        </div>
+        <div class="client-card">
+          <div class="client-inner"><span class="client-accent"
+              style="color:#0C46BB;font-style:italic;font-size:20px;">ORIENT</span></div>
+        </div>
+        <div class="client-card">
+          <div class="client-inner"><span class="client-accent" style="color:#0C46BB;font-size:17px;">★★★★★</span><span
+              class="client-sub">A Taste of Home</span></div>
+        </div>
+        <div class="client-card">
+          <div class="client-inner"><span class="client-accent" style="color:#0C46BB;font-size:22px;">tph</span></div>
+        </div>
+        <div class="client-card">
+          <div class="client-inner"><span class="client-accent" style="color:#0C46BB;font-size:15px;">JM HOUSING</span>
+          </div>
+        </div>
+        <div class="client-card">
+          <div class="client-inner"><span class="client-accent" style="color:#0C46BB;font-size:16px;">JOHNNETTE</span>
+          </div>
+        </div>
+        <div class="client-card dark">
+          <div class="client-inner"><span class="client-accent"
+              style="color:#0C46BB;font-size:28px;font-style:italic;">AM</span></div>
+        </div>
+        <div class="client-card">
+          <div class="client-inner"><span class="client-accent" style="color:#0C46BB;font-size:14px;">ISL</span><span
+              class="client-sub">Indian Sucrose Ltd.</span></div>
+        </div>
+        <!-- Set 2 (duplicate for seamless loop) -->
+        <div class="client-card dark">
+          <div class="client-inner"><span class="client-accent" style="color:#0C46BB;">RAJ ARORA</span><span
+              class="client-name" style="color:#0C46BB;">ROOP VATIKA</span></div>
+        </div>
+        <div class="client-card">
+          <div class="client-inner"><span class="client-accent" style="color:#0C46BB;font-size:18px;">NOVA</span><span
+              class="client-sub">Dairy Products</span></div>
+        </div>
+        <div class="client-card teal">
+          <div class="client-inner"><span class="client-name">पावरग्रिड</span><span
+              class="client-sub">POWERGRID</span></div>
+        </div>
+        <div class="client-card">
+          <div class="client-inner"><span class="client-accent"
+              style="color:#0C46BB;font-size:16px;">VARDHMAN</span><span class="client-sub">Airport Solutions</span>
+          </div>
+        </div>
+        <div class="client-card">
+          <div class="client-inner"><span class="client-accent"
+              style="color:#0C46BB;font-style:italic;font-size:20px;">ORIENT</span></div>
+        </div>
+        <div class="client-card">
+          <div class="client-inner"><span class="client-accent" style="color:#0C46BB;font-size:17px;">★★★★★</span><span
+              class="client-sub">A Taste of Home</span></div>
+        </div>
+        <div class="client-card">
+          <div class="client-inner"><span class="client-accent" style="color:#0C46BB;font-size:22px;">tph</span></div>
+        </div>
+        <div class="client-card">
+          <div class="client-inner"><span class="client-accent" style="color:#0C46BB;font-size:15px;">JM HOUSING</span>
+          </div>
+        </div>
+        <div class="client-card">
+          <div class="client-inner"><span class="client-accent" style="color:#0C46BB;font-size:16px;">JOHNNETTE</span>
+          </div>
+        </div>
+        <div class="client-card dark">
+          <div class="client-inner"><span class="client-accent"
+              style="color:#0C46BB;font-size:28px;font-style:italic;">AM</span></div>
+        </div>
+        <div class="client-card">
+          <div class="client-inner"><span class="client-accent" style="color:#0C46BB;font-size:14px;">ISL</span><span
+              class="client-sub">Indian Sucrose Ltd.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 2 � scrolls right -->
+    <div class="marquee-wrapper">
+      <div class="marquee-track row2">
+        <!-- Set 1 -->
+        <div class="client-card teal">
+          <div class="client-inner"><span class="client-accent" style="font-size:14px;">e trade</span></div>
+        </div>
+        <div class="client-card">
+          <div class="client-inner"><span class="client-accent"
+              style="color:#0C46BB;font-size:14px;">FAIRFOX</span><span class="client-sub">Eye of Noida � EON</span>
+          </div>
+        </div>
+        <div class="client-card">
+          <div class="client-inner"><span class="client-accent" style="color:#0C46BB;font-size:14px;">RITES</span><span
+              class="client-sub">The Infrastructure People</span></div>
+        </div>
+        <div class="client-card">
+          <div class="client-inner"><span class="client-accent" style="color:#0C46BB;font-size:13px;">BANTON</span><span
+              class="client-sub">Universal Productions</span></div>
+        </div>
+        <div class="client-card">
+          <div class="client-inner"><span class="client-accent" style="color:#0C46BB;font-size:11px;">AASHVI
+              FERRITES</span><span class="client-sub">Magnetic Requirements</span></div>
+        </div>
+        <div class="client-card navy">
+          <div class="client-inner"><span class="client-accent"
+              style="color:#0C46BB;font-size:15px;letter-spacing:2px;">TORTE</span><span class="client-sub"
+              style="color:#0C46BB;">Experiential Dessert Bar</span></div>
+        </div>
+        <div class="client-card">
+          <div class="client-inner"><span class="client-accent" style="color:#0C46BB;font-size:12px;">Federation
+              of</span><span class="client-name" style="font-size:11px;color:#0C46BB;">Indian Industry</span></div>
+        </div>
+        <div class="client-card teal">
+          <div class="client-inner"><span class="client-accent" style="font-size:14px;">AKSAR</span><span
+              class="client-sub" style="color:#0C46BB;">Talent Services</span></div>
+        </div>
+        <div class="client-card dark">
+          <div class="client-inner"><span class="client-accent" style="color:#0C46BB;font-size:22px;">IS</span><span
+              class="client-sub" style="color:#0C46BB;">IntelliSync</span></div>
+        </div>
+        <div class="client-card">
+          <div class="client-inner"><span class="client-accent" style="color:#0C46BB;font-size:16px;">Dab's</span><span
+              class="client-sub">Mealbox</span></div>
+        </div>
+        <div class="client-card">
+          <div class="client-inner"><span class="client-accent" style="color:#0C46BB;font-size:13px;">GOV.
+              SEAL</span><span class="client-sub">2550 � Institution</span></div>
+        </div>
+        <!-- Set 2 (duplicate for seamless loop) -->
+        <div class="client-card teal">
+          <div class="client-inner"><span class="client-accent" style="font-size:14px;">e trade</span></div>
+        </div>
+        <div class="client-card">
+          <div class="client-inner"><span class="client-accent"
+              style="color:#0C46BB;font-size:14px;">FAIRFOX</span><span class="client-sub">Eye of Noida � EON</span>
+          </div>
+        </div>
+        <div class="client-card">
+          <div class="client-inner"><span class="client-accent" style="color:#0C46BB;font-size:14px;">RITES</span><span
+              class="client-sub">The Infrastructure People</span></div>
+        </div>
+        <div class="client-card">
+          <div class="client-inner"><span class="client-accent" style="color:#0C46BB;font-size:13px;">BANTON</span><span
+              class="client-sub">Universal Productions</span></div>
+        </div>
+        <div class="client-card">
+          <div class="client-inner"><span class="client-accent" style="color:#0C46BB;font-size:11px;">AASHVI
+              FERRITES</span><span class="client-sub">Magnetic Requirements</span></div>
+        </div>
+        <div class="client-card navy">
+          <div class="client-inner"><span class="client-accent"
+              style="color:#0C46BB;font-size:15px;letter-spacing:2px;">TORTE</span><span class="client-sub"
+              style="color:#0C46BB;">Experiential Dessert Bar</span></div>
+        </div>
+        <div class="client-card">
+          <div class="client-inner"><span class="client-accent" style="color:#0C46BB;font-size:12px;">Federation
+              of</span><span class="client-name" style="font-size:11px;color:#0C46BB;">Indian Industry</span></div>
+        </div>
+        <div class="client-card teal">
+          <div class="client-inner"><span class="client-accent" style="font-size:14px;">AKSAR</span><span
+              class="client-sub" style="color:#0C46BB;">Talent Services</span></div>
+        </div>
+        <div class="client-card dark">
+          <div class="client-inner"><span class="client-accent" style="color:#0C46BB;font-size:22px;">IS</span><span
+              class="client-sub" style="color:#0C46BB;">IntelliSync</span></div>
+        </div>
+        <div class="client-card">
+          <div class="client-inner"><span class="client-accent" style="color:#0C46BB;font-size:16px;">Dab's</span><span
+              class="client-sub">Mealbox</span></div>
+        </div>
+        <div class="client-card">
+          <div class="client-inner"><span class="client-accent" style="color:#0C46BB;font-size:13px;">GOV.
+              SEAL</span><span class="client-sub">2550 � Institution</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-tint">
+    <div class="container">
+      <div class="center"><span class="eyebrow">CLIENT STORIES</span></div>
+      <h2 class="section-title">Trusted by Founders and Enterprises</h2>
+      <p class="section-sub">What businesses say after working with the Lexmart team.</p>
+      <div class="testi-grid">
+        <div class="testi-card">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <p>"Lexmart handled our incorporation and trademark work end to end. Every filing was accurate, on time, and
+            explained in plain language."</p>
+          <div class="testi-divider">
+            <div class="testi-name">Arjun Mehta</div>
+            <div class="testi-role">Foundry Labs Pvt. Ltd.</div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <p>"Their compliance calendar saved us from three penalty windows in the first year alone. Genuinely proactive
+            counsel."</p>
+          <div class="testi-divider">
+            <div class="testi-name">Priya Nair</div>
+            <div class="testi-role">Aurelia Retail</div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <p>"We work across jurisdictions and Lexmart is the most responsive advisory team we've engaged. Transparent
+            pricing, no surprises."</p>
+          <div class="testi-divider">
+            <div class="testi-name">Daniel Fischer</div>
+            <div class="testi-role">Northbridge Ventures</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="center"><span class="eyebrow">INSIGHTS</span></div>
+      <h2 class="section-title">Latest Blogs</h2>
+      <p class="section-sub">Practical guidance on regulation, structuring, and protecting what you build.</p>
+      <div class="blogs-grid">
+        <div class="blog-card" onclick="window.location.href='blog-detail.html';" style="cursor: pointer;">
+          <div class="blog-thumb">
+            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&q=80" alt="Corporate Law blog">
+          </div>
+          <div class="blog-body">
+            <span class="blog-tag">Corporate Law</span><span class="blog-date">13 Mar 2026</span>
+            <h3>Private Limited vs LLP: Choosing the Right Structure in 2026</h3>
+            <a href="blog-detail.html">Read More <svg class="icon" style="width:14px;height:14px;">
+                <use href="#i-arrow" />
+              </svg></a>
+          </div>
+        </div>
+        <div class="blog-card" onclick="window.location.href='blog-detail.html';" style="cursor: pointer;">
+          <div class="blog-thumb">
+            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80" alt="Trademark blog">
+          </div>
+          <div class="blog-body">
+            <span class="blog-tag">Intellectual Property</span><span class="blog-date">04 Mar 2026</span>
+            <h3>Trademark Objections: How to Respond Without Losing Your Filing Date</h3>
+            <a href="blog-detail.html">Read More <svg class="icon" style="width:14px;height:14px;">
+                <use href="#i-arrow" />
+              </svg></a>
+          </div>
+        </div>
+        <div class="blog-card" onclick="window.location.href='blog-detail.html';" style="cursor: pointer;">
+          <div class="blog-thumb">
+            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80" alt="Compliance blog">
+          </div>
+          <div class="blog-body">
+            <span class="blog-tag">Compliance</span><span class="blog-date">21 Feb 2026</span>
+            <h3>The Annual Compliance Calendar Every Growing SME Should Follow</h3>
+            <a href="blog-detail.html">Read More <svg class="icon" style="width:14px;height:14px;">
+                <use href="#i-arrow" />
+              </svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-tint">
+    <div class="container">
+      <div class="center"><span class="eyebrow">FAQ</span></div>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-sub">Straight answers to the questions we hear most often.</p>
+      <div class="faq-list">
+        <div class="faq-item active" onclick="toggleFaq(this)">
+          <div class="faq-q"><span>How long does company registration take?</span><span class="faq-toggle">-</span>
+          </div>
+          <div class="faq-a">Most private limited registrations complete within 7&ndash;10 working days once documents and
+            digital signatures are in place. We share a live status tracker throughout.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q"><span>Do you offer fixed pricing?</span><span class="faq-toggle">+</span></div>
+          <div class="faq-a">Yes � every engagement starts with a fixed, itemised quote so there are no hidden charges
+            along the way.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q"><span>Can you handle ongoing compliance after registration?</span><span
+              class="faq-toggle">+</span></div>
+          <div class="faq-a">Absolutely. We manage annual filings, renewals, and regulatory calendars for clients on a
+            retainer basis.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q"><span>What happens in the initial consultation?</span><span class="faq-toggle">+</span></div>
+          <div class="faq-a">We review your business goals and current legal exposure, then map out exactly which
+            filings and protections you need.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q"><span>Is my documentation kept confidential?</span><span class="faq-toggle">+</span></div>
+          <div class="faq-a">Yes. All documents are handled through encrypted channels under strict confidentiality
+            agreements.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="cta-banner">
+        <h2>Need Legal Assistance?</h2>
+        <p>Contact our experts and let us simplify your business journey.</p>
+        <div style="margin: 30px 0; display: flex; justify-content: center;">
+          <script src="https://cdn.lordicon.com/lordicon.js"></script>
+          <lord-icon src="https://cdn.lordicon.com/zpxyqjsy.json" trigger="loop"
+            colors="primary:#ffffff,secondary:#d6e4ff" style="width:90px;height:90px">
+          </lord-icon>
+        </div>
+        <a href="contact.html" class="btn btn-white">Contact Us <svg class="icon" style="width:16px;height:16px;">
+            <use href="#i-arrow" />
+          </svg></a>
+      </div>
+    </div>
+  </section>
+
+    <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand -->
+        <div>
+          <a href="index.html" class="footer-logo" style="text-decoration: none;">
+            <img src="images/white_logo.png" alt="Lexmart Logo"
+              style="height:140px; width:auto; object-fit:contain; border-radius:8px;">
+          </a>
+          <p>Legal and business consulting for startups, SMEs, and enterprises &ndash; from incorporation to ongoing compliance.</p>
+          <div class="social-row">
+            <a class="social-circle" href="#"><svg class="icon" style="width:16px;height:16px;">
+                <use href="#i-linkedin" />
+              </svg></a>
+            <a class="social-circle" href="#"><svg class="icon" style="width:16px;height:16px;">
+                <use href="#i-twitter" />
+              </svg></a>
+            <a class="social-circle" href="#"><svg class="icon" style="width:16px;height:16px;">
+                <use href="#i-facebook" />
+              </svg></a>
+            <a class="social-circle" href="#"><svg class="icon" style="width:16px;height:16px;">
+                <use href="#i-instagram" />
+              </svg></a>
+          </div>
+        </div>
+        <!-- Company -->
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="service-corporate-law.html">Services</a></li>
+            <li><a href="blogs.html">Blogs</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <!-- Services -->
+        <div>
+          <h4>Services</h4>
+          <ul>
+            <li><a href="service-corporate-law.html">Corporate Law</a></li>
+            <li><a href="service-taxation.html">Taxation</a></li>
+            <li><a href="service-intellectual-property.html">Intellectual Property</a></li>
+            <li><a href="service-business-compliance.html">Business Compliance</a></li>
+            <li><a href="service-advisory.html">Advisory &amp; Startup Advisory</a></li>
+          </ul>
+        </div>
+        <!-- Policies -->
+        <div>
+          <h4>Policies</h4>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-conditions.html">Terms &amp; Conditions</a></li>
+            <li><a href="cookie-policy.html">Cookie Policy</a></li>
+          </ul>
+        </div>
+        <!-- Contact -->
+        <div>
+          <h4>Contact Us</h4>
+          <ul class="contact-list">
+            <li><svg class="icon">
+                <use href="#i-phone" />
+              </svg><span><a href="tel:+919999028148">+91 99990-28148</a><br><a href="tel:+919811541004">+91 98115-41004</a></span></li>
+            <li><svg class="icon">
+                <use href="#i-mail" />
+              </svg><span><a href="mailto:connect@lexmart.co.in">connect@lexmart.co.in</a></span></li>
+            <li><svg class="icon">
+                <use href="#i-pin" />
+              </svg><span><span style="white-space:nowrap;">Lexmart Corporate Solutions LLP</span><br>I-23, L.G.F., Lajpat Nagar- III,<br>New Delhi- 110024.</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2024 Lexmart Corporate Solutions LLP. All rights reserved.</span>
+        <span>Built for founders who move fast.</span>
+        <span>Developed by Brand Mindz</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function switchTab(index) {
+      var tabs = document.querySelectorAll('.service-tab');
+      var panels = document.querySelectorAll('.service-panel');
+      tabs.forEach(t => t.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      tabs[index].classList.add('active');
+      panels[index].classList.add('active');
+    }
+    function toggleFaq(el) {
+      var items = document.querySelectorAll('.faq-item');
+      items.forEach(function (i) {
+        if (i === el) {
+          i.classList.toggle('active');
+          i.querySelector('.faq-toggle').textContent = i.classList.contains('active') ? '-' : '+';
+        } else {
+          i.classList.remove('active');
+          i.querySelector('.faq-toggle').textContent = '+';
+        }
+      });
+    }
+  </script>
+
+</body>
+
+</html>

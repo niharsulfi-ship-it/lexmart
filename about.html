@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Lexmart | Legal &amp; Business Advisors</title>
+  <meta name="description"
+    content="Learn about Lexmart Corporate Solutions LLP — our story, mission, leadership team, and the values that drive India's most trusted legal advisory firm.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── About-page-specific styles ── */
+
+    /* Hero */
+    .about-hero {
+      position: relative;
+      min-height: 380px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('images/about.webp') center/cover no-repeat;
+    }
+
+    .about-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: transparent;
+    }
+
+    /* decorative circles */
+    .about-hero::after {
+      content: "";
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      top: -180px;
+      right: -120px;
+    }
+
+    .hero-deco {
+      position: absolute;
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      bottom: -100px;
+      left: 40px;
+      pointer-events: none;
+    }
+
+    .about-hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+      padding: 60px max(24px, calc((100vw - 1300px)/2 + 24px)) 60px;
+    }
+
+    .about-hero-inner .eyebrow {
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(4px);
+    }
+
+    .about-hero-inner h1 {
+      font-size: 52px;
+      line-height: 1.15;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 20px;
+    }
+
+    .about-hero-inner h1 .highlight {
+      color: #d6e4ff;
+      font-weight: 500;
+    }
+
+    .about-hero-inner p {
+      font-size: 17px;
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    /* Stats bar */
+    .about-stats {
+      background: #ffffff;
+      box-shadow: 0 20px 60px rgba(12, 70, 187, 0.15);
+      border-radius: 20px;
+      margin: -40px auto 0;
+      max-width: 1100px;
+      padding: 36px 48px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+      z-index: 10;
+    }
+
+    .abt-stat {
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .abt-stat:not(:last-child) {
+      border-right: 1px solid var(--border);
+    }
+
+    .abt-stat-num {
+      font-family: 'Poppins', sans-serif;
+      font-size: 38px;
+      font-weight: 800;
+      color: var(--blue-700);
+      line-height: 1;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .abt-stat-label {
+      font-size: 13px;
+      color: var(--ink-soft);
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    /* Story section */
+    .story-section {
+      padding: 80px 0;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .story-visual {
+      position: relative;
+    }
+
+    .story-img-wrap {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 30px 70px rgba(12, 70, 187, 0.2);
+    }
+
+    .story-img-wrap img {
+      width: 100%;
+      height: 440px;
+      object-fit: fill;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .story-img-wrap:hover img {
+      transform: scale(1.03);
+    }
+
+    .story-badge {
+      position: absolute;
+      bottom: -24px;
+      right: -24px;
+      background: var(--blue-700);
+      color: #ffffff;
+      border-radius: 16px;
+      padding: 20px 28px;
+      box-shadow: 0 16px 32px rgba(12, 70, 187, 0.3);
+      text-align: center;
+    }
+
+    .story-badge strong {
+      display: block;
+      font-family: 'Poppins', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .story-badge span {
+      font-size: 12px;
+      font-weight: 600;
+      opacity: 0.85;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .story-content .eyebrow {
+      margin-bottom: 20px;
+    }
+
+    .story-content h2 {
+      font-size: 38px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: var(--ink);
+      text-align: left;
+    }
+
+    .story-content h2 span {
+      color: var(--blue-700);
+    }
+
+    .story-content p {
+      font-size: 15.5px;
+      color: var(--ink-soft);
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+
+    .story-quote {
+      margin-top: 32px;
+      padding: 24px 28px;
+      background: var(--blue-50);
+      border-left: 4px solid var(--blue-700);
+      border-radius: 0 12px 12px 0;
+      font-size: 15px;
+      font-style: italic;
+      color: var(--blue-800);
+      font-weight: 500;
+      line-height: 1.6;
+    }
+
+    /* Mission & Vision split */
+    .mv-section {
+      background: linear-gradient(150deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.55) 100%), url('images/WHAT DRIVES US.webp') center/cover no-repeat;
+      padding: 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mv-section::before {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      top: -160px;
+      right: -100px;
+      pointer-events: none;
+    }
+
+    .mv-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .mv-card {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 44px;
+      backdrop-filter: blur(6px);
+      transition: background .3s ease, transform .3s ease;
+    }
+
+    .mv-card:hover {
+      background: rgba(255, 255, 255, 0.18);
+      transform: translateY(-4px);
+    }
+
+    .mv-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      margin-bottom: 24px;
+    }
+
+    .mv-card h3 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 14px;
+    }
+
+    .mv-card p {
+      font-size: 14.5px;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.75;
+      margin-bottom: 12px;
+    }
+
+    .mv-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .mv-card ul li {
+      font-size: 14.5px;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.6;
+      margin-bottom: 14px;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .mv-card ul li::before {
+      content: "\2022";
+      position: absolute;
+      left: 0;
+      top: 0px;
+      color: var(--blue-100);
+      font-size: 14px;
+    }
+
+    /* Core Values */
+    .values-section {
+      padding: 100px 0;
+      background: linear-gradient(135deg, var(--blue-900) 0%, var(--blue-700) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .values-section::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+    }
+
+    .values-section .center .eyebrow {
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .values-section .section-title {
+      color: #ffffff;
+    }
+
+    .values-section .section-sub {
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .value-card {
+      background: rgba(255, 255, 255, 0.07);
+      border-radius: 18px;
+      padding: 36px 28px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      transition: all .3s cubic-bezier(.4, 0, .2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .value-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #d6e4ff, #ffffff);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .35s ease;
+    }
+
+    .value-card:hover {
+      background: rgba(255, 255, 255, 0.14);
+      box-shadow: 0 20px 44px rgba(0, 0, 0, 0.2);
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-5px);
+    }
+
+    .value-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .value-num {
+      font-family: 'Poppins', sans-serif;
+      font-size: 48px;
+      font-weight: 800;
+      color: rgba(255, 255, 255, 0.3);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .value-card h3 {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+
+    .value-card p {
+      font-size: 13.5px;
+      color: rgba(255, 255, 255, 0.75);
+      line-height: 1.65;
+    }
+
+    /* Team */
+    .team-section {
+      padding: 100px 0;
+      background-color: #f8fafc;
+      background-image: radial-gradient(#d6e4ff 1px, #f8fafc 1px);
+      background-size: 26px 26px;
+      position: relative;
+    }
+
+    /* Soft fade at top/bottom of dot grid */
+    .team-section::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, #f8fafc 0%, transparent 5%, transparent 95%, #f8fafc 100%);
+      pointer-events: none;
+    }
+
+    .partners-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      margin-top: 48px;
+      margin-bottom: 60px;
+    }
+
+    .partner-card-new {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 32px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 8px 24px rgba(12, 70, 187, 0.1);
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+    .partner-card-new:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 44px rgba(12, 70, 187, 0.2);
+    }
+
+    .partner-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue-700), var(--blue-900));
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Poppins', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      flex-shrink: 0;
+      box-shadow: 0 8px 20px rgba(12, 70, 187, 0.3);
+    }
+
+    .partner-body {
+      flex: 1;
+    }
+
+    .partner-body h3 {
+      font-size: 20px;
+      color: var(--blue-800);
+      margin-bottom: 4px;
+    }
+
+    .partner-body .role {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--blue-700);
+      margin-bottom: 4px;
+    }
+
+    .partner-body .quals {
+      font-size: 11.5px;
+      color: var(--ink-soft);
+      margin-bottom: 14px;
+    }
+
+    .partner-body p {
+      font-size: 13.5px;
+      color: var(--ink-soft);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .partner-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .partner-tag {
+      background: var(--blue-50);
+      color: var(--blue-700);
+      font-size: 10px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--blue-100);
+    }
+
+    .associates-title {
+      font-size: 26px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 32px;
+      color: var(--ink);
+      position: relative;
+    }
+
+    .associates-title::after {
+      content: "";
+      display: block;
+      width: 50px;
+      height: 3px;
+      background: var(--blue-700);
+      border-radius: 2px;
+      margin: 12px auto 0;
+    }
+
+    .associates-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .assoc-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 28px;
+      transition: all .3s ease;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .assoc-card:hover {
+      background: #eef4ff;
+      box-shadow: 0 12px 30px rgba(12, 70, 187, 0.15);
+      transform: translateY(-4px);
+    }
+
+    .assoc-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--blue-700);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .assoc-body h4 {
+      font-size: 16px;
+      color: var(--blue-800);
+      margin-bottom: 3px;
+      font-weight: 700;
+    }
+
+    .assoc-body .quals {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--blue-700);
+      margin-bottom: 8px;
+    }
+
+    .assoc-body p {
+      font-size: 13px;
+      color: var(--ink-soft);
+      line-height: 1.55;
+    }
+
+    /* Why Lexmart */
+    .why-section {
+      padding: 80px 0;
+      background: var(--blue-50);
+    }
+
+    /* CTA banner */
+    .about-cta {
+      padding: 60px 0;
+    }
+
+    .about-cta .cta-banner {
+      background: linear-gradient(120deg, #1e293b 0%, #0f172a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+      padding: 60px 70px;
+      text-align: left;
+    }
+
+    .about-cta .cta-banner h2 {
+      margin-bottom: 8px;
+      font-size: 28px;
+    }
+
+    .about-cta .cta-banner p {
+      margin-bottom: 0;
+      max-width: 420px;
+    }
+
+    @media (max-width: 900px) {
+      .about-hero-inner h1 {
+        font-size: 34px;
+      }
+
+      .about-stats {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 28px 24px;
+      }
+
+      .abt-stat:nth-child(2) {
+        border-right: none;
+      }
+
+      .story-grid,
+      .mv-grid,
+      .partners-row,
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .story-badge {
+        right: 10px;
+        bottom: 10px;
+      }
+
+      .associates-row {
+        grid-template-columns: 1fr;
+      }
+
+      .about-cta .cta-banner {
+        padding: 40px 28px;
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    /* -- Moving Blue Gradient Animation -- */
+    @keyframes moveGradient {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* Core Values section - moving glossy blue */
+    .values-section {
+      background: linear-gradient(270deg, #020b33, #061c73, #153bc7, #8cb9ff, #153bc7, #061c73, #020b33) !important;
+      background-size: 300% 300% !important;
+      animation: moveGradient 8s ease infinite !important;
+    }
+
+    /* Story badge - moving glossy */
+    .story-badge {
+      background: linear-gradient(270deg, #061c73, #153bc7, #8cb9ff, #153bc7, #061c73) !important;
+      background-size: 200% 200% !important;
+      animation: moveGradient 5s ease infinite !important;
+      box-shadow: 0 16px 32px rgba(6, 28, 115, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.3);
+    }
+
+    /* Partner avatars - moving glossy */
+    .partner-avatar {
+      background: linear-gradient(270deg, #061c73, #153bc7, #8cb9ff, #153bc7, #061c73) !important;
+      background-size: 200% 200% !important;
+      animation: moveGradient 5s ease infinite !important;
+      box-shadow: 0 8px 20px rgba(6, 28, 115, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.3);
+    }
+
+    /* Associate avatars - moving glossy */
+    .assoc-avatar {
+      background: linear-gradient(270deg, #061c73, #153bc7, #8cb9ff, #153bc7, #061c73) !important;
+      background-size: 200% 200% !important;
+      animation: moveGradient 5s ease infinite !important;
+    }
+
+    /* Stat numbers - glossy text color animation */
+    .abt-stat-num {
+      background: linear-gradient(270deg, #061c73, #153bc7, #8cb9ff, #153bc7, #061c73);
+      background-size: 200% 200%;
+      animation: moveGradient 5s ease infinite;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* MV icons - glossy */
+    .mv-icon {
+      background: linear-gradient(270deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1)) !important;
+      background-size: 200% 200% !important;
+      animation: moveGradient 4s ease infinite !important;
+      box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.2);
+    }
+
+    /* CTA banner - moving glossy blue */
+    .about-cta .cta-banner {
+      background: linear-gradient(270deg, #020b33, #061c73, #153bc7, #8cb9ff, #153bc7, #061c73, #020b33) !important;
+      background-size: 300% 300% !important;
+      animation: moveGradient 8s ease infinite !important;
+      box-shadow: 0 20px 60px rgba(2, 11, 51, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-cta .cta-banner::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      background: radial-gradient(ellipse at top, rgba(255, 255, 255, 0.2) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 1;
+    }
+  </style>
+</head>
+
+<body>
+
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <symbol id="i-scale" viewBox="0 0 24 24">
+        <path d="M12 3v18M5 7h14M5 7 2 13a3 3 0 0 0 6 0zM19 7l-3 6a3 3 0 0 0 6 0zM8 21h8" />
+      </symbol>
+      <symbol id="i-building" viewBox="0 0 24 24">
+        <rect x="4" y="3" width="16" height="18" rx="1" />
+        <path d="M9 21v-4h6v4M9 8h1M14 8h1M9 12h1M14 12h1M9 16h1M14 16h1" />
+      </symbol>
+      <symbol id="i-rupee" viewBox="0 0 24 24">
+        <path d="M7 4h10M7 9h10M7 4c4 0 6 2 6 4.5S11 13 7 13l7 8" />
+      </symbol>
+      <symbol id="i-lock" viewBox="0 0 24 24">
+        <rect x="3" y="11" width="18" height="11" rx="2" />
+        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+      </symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24">
+        <path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5Z" />
+        <path d="m9 12 2 2 4-4" />
+      </symbol>
+      <symbol id="i-users" viewBox="0 0 24 24">
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+        <circle cx="9" cy="7" r="4" />
+        <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+      </symbol>
+      <symbol id="i-award" viewBox="0 0 24 24">
+        <circle cx="12" cy="8" r="6" />
+        <path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5" />
+      </symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24">
+        <line x1="5" y1="12" x2="19" y2="12" />
+        <polyline points="12 5 19 12 12 19" />
+      </symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24">
+        <polyline points="6 9 12 15 18 9" />
+      </symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24">
+        <path
+          d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+      </symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24">
+        <rect x="2" y="4" width="20" height="16" rx="2" />
+        <path d="m2 7 10 6 10-6" />
+      </symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+        <circle cx="12" cy="10" r="3" />
+      </symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24">
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+        <rect x="2" y="9" width="4" height="12" />
+        <circle cx="4" cy="4" r="2" />
+      </symbol>
+      <symbol id="i-twitter" viewBox="0 0 24 24">
+        <path
+          d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
+      </symbol>
+      <symbol id="i-facebook" viewBox="0 0 24 24">
+        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+      </symbol>
+      <symbol id="i-instagram" viewBox="0 0 24 24">
+        <rect x="2" y="2" width="20" height="20" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+      </symbol>
+      <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+        <line x1="16" y1="2" x2="16" y2="6"></line>
+        <line x1="8" y1="2" x2="8" y2="6"></line>
+        <line x1="3" y1="10" x2="21" y2="10"></line>
+      </symbol>
+      <symbol id="i-handshake" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="m11 17 2 2a1 1 0 1 0 3-3" />
+        <path
+          d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" />
+        <path d="m21 3-6 6" />
+        <path d="m22 14-4 4" />
+        <path d="m3 21 6-6" />
+        <path d="m8 21 4-4" />
+        <path d="m5 17 4-4" />
+        <path d="M11 21v-2" />
+      </symbol>
+      <symbol id="i-pin-map" viewBox="0 0 24 24">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+        <circle cx="12" cy="10" r="3" />
+      </symbol>
+      <symbol id="i-target" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10" />
+        <circle cx="12" cy="12" r="6" />
+        <circle cx="12" cy="12" r="2" />
+      </symbol>
+      <symbol id="i-eye" viewBox="0 0 24 24">
+        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+        <circle cx="12" cy="12" r="3" />
+      </symbol>
+      <symbol id="i-zap" viewBox="0 0 24 24">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+      </symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10" />
+        <line x1="2" y1="12" x2="22" y2="12" />
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-wrap">
+      <a href="index.html" class="logo" style="text-decoration: none;">
+        <img src="images/lexmart_logo.png" alt="Lexmart Logo" style="height:130px; width:auto; object-fit:contain;">
+      </a>
+      <nav class="links">
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About</a>
+        <li class="nav-dropdown" style="list-style:none;">
+          <a href="service-corporate-law.html">Services <svg class="icon" style="width:14px;height:14px;">
+              <use href="#i-chevron" />
+            </svg></a>
+          <div class="nav-dropdown-menu">
+            <a href="service-corporate-law.html" class="dropdown-item">
+              <span class="di-icon"><svg class="icon" style="width:16px;height:16px;">
+                  <use href="#i-building" />
+                </svg></span>
+              <span class="di-text"><strong>Corporate Law</strong></span>
+            </a>
+            <a href="service-taxation.html" class="dropdown-item">
+              <span class="di-icon"><svg class="icon" style="width:16px;height:16px;">
+                  <use href="#i-rupee" />
+                </svg></span>
+              <span class="di-text"><strong>Taxation</strong></span>
+            </a>
+            <a href="service-intellectual-property.html" class="dropdown-item">
+              <span class="di-icon"><svg class="icon" style="width:16px;height:16px;">
+                  <use href="#i-shield" />
+                </svg></span>
+              <span class="di-text"><strong>Intellectual Property</strong></span>
+            </a>
+            <a href="service-business-compliance.html" class="dropdown-item">
+              <span class="di-icon"><svg class="icon" style="width:16px;height:16px;">
+                  <use href="#i-lock" />
+                </svg></span>
+              <span class="di-text"><strong>Business Compliance</strong></span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="service-advisory.html" class="dropdown-item">
+              <span class="di-icon"><svg class="icon" style="width:16px;height:16px;">
+                  <use href="#i-zap" />
+                </svg></span>
+              <span class="di-text"><strong>Advisory & Startup Advisory</strong></span>
+            </a>
+          </div>
+        </li>
+        <a href="team.html">Team</a>
+        <a href="blogs.html">Blogs</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <a href="contact.html" class="btn-consult" style="
+        display:inline-flex;
+        align-items:center;
+        gap:8px;
+        padding:10px 20px;
+        background:linear-gradient(135deg,#062d80,#1f5cd4);
+        color:#fff;
+        font-size:14px;
+        font-weight:600;
+        border-radius:50px;
+        text-decoration:none;
+        white-space:nowrap;
+        box-shadow:0 4px 14px rgba(6,45,128,0.3);
+        transition:all .25s ease;
+      " onmouseover="this.style.boxShadow='0 6px 20px rgba(6,45,128,0.5)';this.style.transform='translateY(-1px)'" onmouseout="this.style.boxShadow='0 4px 14px rgba(6,45,128,0.3)';this.style.transform='translateY(0)'">
+        <svg style="width:15px;height:15px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Book a Consultation
+      </a>
+
+    </div>
+  <button class="hamburger" id="hamburgerBtn" aria-label="Open Menu"><span></span><span></span><span></span></button>
+</header>
+<nav class="mobile-nav" id="mobileNav" style="display:none"><button class="mobile-close" id="mobileClose" aria-label="Close Menu">&times;</button><a href="index.html">Home</a><a href="about.html">About</a><span class="mobile-services-title">Services</span><div class="mobile-sub-links"><a href="service-corporate-law.html">Corporate Law</a><a href="service-taxation.html">Taxation</a><a href="service-intellectual-property.html">Intellectual Property</a><a href="service-business-compliance.html">Business Compliance</a><a href="service-advisory.html">Advisory</a></div><a href="team.html">Team</a><a href="blogs.html">Blogs</a><a href="contact.html">Contact</a></nav><script>(function(){var btn=document.getElementById("hamburgerBtn");var nav=document.getElementById("mobileNav");var cl=document.getElementById("mobileClose");if(btn&&nav){btn.addEventListener("click",function(){nav.classList.toggle("open");btn.classList.toggle("open");document.body.style.overflow=nav.classList.contains("open")?"hidden":"";});if(cl)cl.addEventListener("click",function(){nav.classList.remove("open");btn.classList.remove("open");document.body.style.overflow="";});nav.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){nav.classList.remove("open");btn.classList.remove("open");document.body.style.overflow="";});});}})();</script>
+
+  <!-- ── HERO ── -->
+  <section class="about-hero animate-fade-in delay-100">
+    <div class="hero-deco"></div>
+    <div class="about-hero-inner animate-slide-up delay-200">
+      <span class="eyebrow">ABOUT LEXMART</span>
+      <h1>Trusted Legal Counsel.<br><span class="highlight">Since 2022.</span></h1>
+      <p>Lexmart Corporate Solutions LLP is a full-service legal and compliance firm empowering startups, SMEs, and
+        enterprises to navigate complex regulations with clarity, confidence, and precision.</p>
+    </div>
+  </section>
+
+  <!-- ── STATS STRIP ── -->
+  <div class="container animate-slide-up delay-300" style="position:relative; z-index:10; margin-bottom:80px;">
+    <div class="about-stats">
+      <div class="abt-stat">
+        <span class="abt-stat-num" id="cnt-years">10+</span>
+        <span class="abt-stat-label">Years of<br>Excellence</span>
+      </div>
+      <div class="abt-stat">
+        <span class="abt-stat-num" id="cnt-clients">500+</span>
+        <span class="abt-stat-label">Businesses<br>Served</span>
+      </div>
+      <div class="abt-stat">
+        <span class="abt-stat-num" id="cnt-trademark">98%</span>
+        <span class="abt-stat-label">Trademark<br>Success Rate</span>
+      </div>
+      <div class="abt-stat">
+        <span class="abt-stat-num" id="cnt-cases">1000+</span>
+        <span class="abt-stat-label">Compliance<br>Cases Handled</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- -- STORY -- -->
+  <section class="story-section">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-visual animate-slide-up delay-100">
+          <div class="story-img-wrap">
+            <img src="images/About_OurStory-1.webp" alt="Lexmart Office">
+          </div>
+          <div class="story-badge">
+            <strong>2022</strong>
+            <span>Established<br>in India</span>
+            <div
+              style="font-size:11px; margin-top:10px; font-weight:500; opacity:0.9; text-transform:none; letter-spacing:0; line-height:1.4;">
+              A decade of empowering businesses<br>with reliable legal solutions.</div>
+          </div>
+        </div>
+        <div class="story-content">
+          <span class="eyebrow">OUR STORY</span>
+          <h2>Built to <span>Simplify</span> Legal for Business</h2>
+          <p>Lexmart Corporate Solutions LLP was built with a clear purpose � to provide businesses with reliable,
+            practical, and comprehensive legal and advisory solutions under one roof.</p>
+          <p>With decades of collective professional experience, our team of Chartered Accountants, Lawyers, Insolvency
+            Professionals, and Company Secretaries brings together diverse expertise across taxation, corporate and
+            legal compliance, insolvency, restructuring, mergers and acquisitions, litigation, and financial advisory.
+          </p>
+          <p>We believe that every business has unique challenges and deserves a solution tailored to its needs. Our
+            approach combines strong legal and regulatory knowledge with practical, solution-oriented thinking, enabling
+            our clients to navigate complex business and compliance requirements with greater confidence and clarity.
+          </p>
+          <p>From routine compliance to complex corporate matters, we work closely with our clients to understand their
+            objectives, provide personalized guidance, and build long-term professional relationships based on trust,
+            responsiveness, and results.</p>
+          <div class="story-quote">
+            "Our goal is not just to provide legal advice, but to be true partners in every stage of your business
+            journey."
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- -- MISSION & VISION -- -->
+  <section class="mv-section">
+    <div class="container">
+      <div class="center" style="margin-bottom:48px;">
+        <span class="eyebrow"
+          style="background:rgba(255,255,255,0.15);color:#ffffff;border:1px solid rgba(255,255,255,0.25);">WHAT DRIVES
+          US</span>
+        <h2 class="section-title" style="color:#ffffff;">Purpose Behind Every Case</h2>
+      </div>
+      <div class="mv-grid">
+        <div class="mv-card">
+          <div class="mv-icon"><svg class="icon" style="width:24px;height:24px;">
+              <use href="#i-eye" />
+            </svg></div>
+          <h3>Our Vision</h3>
+          <ul>
+            <li>To be a trusted and leading corporate legal and advisory partner.</li>
+            <li>Most Preferred Work Place.</li>
+          </ul>
+        </div>
+        <div class="mv-card">
+          <div class="mv-icon"><svg class="icon" style="width:24px;height:24px;">
+              <use href="#i-target" />
+            </svg></div>
+          <h3>Our Mission</h3>
+          <p>At Lexmart Corporate Solutions LLP, our mission is to:</p>
+          <ul>
+            <li>Deliver client-centric legal and consulting services across Taxation, Compliance, Insolvency, and
+              M&amp;A with the highest standards of integrity.</li>
+            <li>Empower clients to navigate regulatory complexities with confidence, building long-term relationships
+              through reliable, proactive counsel.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- -- CORE VALUES -- -->
+  <section class="values-section">
+    <div class="container">
+      <div class="center">
+        <span class="eyebrow">OUR VALUES</span>
+        <h2 class="section-title">Principles We Stand By</h2>
+      </div>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-num">01</div>
+          <h3>Integrity</h3>
+          <p>We conduct our work with honesty, transparency, and strong professional ethics, ensuring that our clients
+            can rely on our advice and services.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-num">02</div>
+          <h3>Client-Centric Approach</h3>
+          <p>Every client and business is unique. We take the time to understand individual requirements and provide
+            customized solutions that align with their goals.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-num">03</div>
+          <h3>Expertise & Accuracy</h3>
+          <p>We combine multidisciplinary professional expertise with attention to detail to deliver accurate,
+            dependable, and legally sound solutions.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-num">04</div>
+          <h3>Solution-Oriented Thinking</h3>
+          <p>We look beyond identifying challenges. Our focus is on developing practical and effective solutions that
+            help clients move forward with confidence.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-num">05</div>
+          <h3>Professionalism & Responsiveness</h3>
+          <p>We value timely communication, disciplined execution, and professional service at every stage of our
+            engagement.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-num">06</div>
+          <h3>Long-Term Partnership</h3>
+          <p>We believe successful advisory relationships are built over time. We aim to be a dependable partner for our
+            clients through every stage of their business journey.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- -- LEADERSHIP -- -->
+  <section class="team-section">
+    <div class="container">
+      <div class="center">
+        <span class="eyebrow">OUR LEADERSHIP</span>
+        <h2 class="section-title">Meet the Partners</h2>
+        <p class="section-sub">The legal minds and strategic thinkers at the helm of Lexmart Corporate Solutions.</p>
+      </div>
+
+      <div class="partners-row">
+        <!-- Partner 1 -->
+        <div class="partner-card-new">
+          <div class="partner-avatar">GG</div>
+          <div class="partner-body">
+            <h3>Mr. Gagan Gulati</h3>
+            <div class="role">Founder Member &ndash; Legal &amp; IBC Advisory</div>
+            <div class="quals">Insolvency Professional, LL.B., B.Com (H)</div>
+            <p>Mr. Gagan Gulati is a seasoned Advocate and Registered Insolvency Professional with over 22 years of
+              extensive experience in corporate legal advisory and dispute resolution. With deep legal acumen, he plays
+              a pivotal role in guiding clients through complex legal frameworks and restructuring processes.</p>
+            <div class="partner-tags">
+              <span class="partner-tag">IBC</span>
+              <span class="partner-tag">Amalgamations</span>
+              <span class="partner-tag">Restructuring</span>
+              <span class="partner-tag">IPR</span>
+              <span class="partner-tag">Litigation</span>
+            </div>
+          </div>
+        </div>
+        <!-- Partner 2 -->
+        <div class="partner-card-new">
+          <div class="partner-avatar">NK</div>
+          <div class="partner-body">
+            <h3>Mr. Nitin Kumar</h3>
+            <div class="role">Partner &ndash; Corporate Restructuring &amp; Compliance</div>
+            <div class="quals">LL.B., FCS, B.Com</div>
+            <p>Mr. Nitin Kumar is an experienced Advocate and a Fellow Member of the ICSI. With over 15 years of
+              professional experience, he brings a sharp legal mind and deep regulatory knowledge. His comprehensive
+              understanding of corporate laws enables clients to achieve compliant and strategically sound business
+              outcomes.</p>
+            <div class="partner-tags">
+              <span class="partner-tag">Restructuring</span>
+              <span class="partner-tag">IBC</span>
+              <span class="partner-tag">FEMA</span>
+              <span class="partner-tag">Due Diligence</span>
+            </div>
+          </div>
+        </div>
+        <!-- Partner 3 -->
+        <div class="partner-card-new">
+          <div class="partner-avatar">YB</div>
+          <div class="partner-body">
+            <h3>Ms. Yogita Bhatia</h3>
+            <div class="role">Partner &ndash; Secretarial &amp; Legal Compliances</div>
+            <div class="quals">LL.B., FCS, B.Com (H)</div>
+            <p>Ms. Yogita Bhatia is a Fellow Member of the ICSI and an accomplished Advocate. She brings extensive
+              experience in Corporate Secretarial and Legal Compliance, with over 12 years of professional experience.
+              Her expertise helps businesses stay aligned with evolving regulatory requirements.</p>
+            <div class="partner-tags">
+              <span class="partner-tag">SEBI Compliances</span>
+              <span class="partner-tag">FEMA Advisory</span>
+              <span class="partner-tag">NBFC Regulatory</span>
+              <span class="partner-tag">Governance</span>
+            </div>
+          </div>
+        </div>
+        <!-- Partner 4 -->
+        <div class="partner-card-new">
+          <div class="partner-avatar">PJ</div>
+          <div class="partner-body">
+            <h3>Mr. Pankaj Jangid</h3>
+            <div class="role">Partner &ndash; Taxation</div>
+            <div class="quals">FCA, M.Com, B.Com (H), CPCA</div>
+            <p>Mr. Pankaj Jangid is a Fellow Chartered Accountant and a distinguished leader in Taxation and Financial
+              Advisory, with over 12 years of proven expertise. He is recognized for his analytical depth and meticulous
+              approach to tax planning and financial structuring, helping organizations optimize their tax positions.
+            </p>
+            <div class="partner-tags">
+              <span class="partner-tag">Domestic &amp; Int. Tax</span>
+              <span class="partner-tag">Statutory Audits</span>
+              <span class="partner-tag">Risk Mitigation</span>
+              <span class="partner-tag">Accounting Standards</span>
+            
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand -->
+        <div>
+          <a href="index.html" class="footer-logo" style="text-decoration: none;">
+            <img src="images/white_logo.png" alt="Lexmart Logo"
+              style="height:140px; width:auto; object-fit:contain; border-radius:8px;">
+          </a>
+          <p>Legal and business consulting for startups, SMEs, and enterprises &ndash; from incorporation to ongoing compliance.</p>
+          <div class="social-row">
+            <a class="social-circle" href="#"><svg class="icon" style="width:16px;height:16px;">
+                <use href="#i-linkedin" />
+              </svg></a>
+            <a class="social-circle" href="#"><svg class="icon" style="width:16px;height:16px;">
+                <use href="#i-twitter" />
+              </svg></a>
+            <a class="social-circle" href="#"><svg class="icon" style="width:16px;height:16px;">
+                <use href="#i-facebook" />
+              </svg></a>
+            <a class="social-circle" href="#"><svg class="icon" style="width:16px;height:16px;">
+                <use href="#i-instagram" />
+              </svg></a>
+          </div>
+        </div>
+        <!-- Company -->
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="service-corporate-law.html">Services</a></li>
+            <li><a href="blogs.html">Blogs</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <!-- Services -->
+        <div>
+          <h4>Services</h4>
+          <ul>
+            <li><a href="service-corporate-law.html">Corporate Law</a></li>
+            <li><a href="service-taxation.html">Taxation</a></li>
+            <li><a href="service-intellectual-property.html">Intellectual Property</a></li>
+            <li><a href="service-business-compliance.html">Business Compliance</a></li>
+            <li><a href="service-advisory.html">Advisory &amp; Startup Advisory</a></li>
+          </ul>
+        </div>
+        <!-- Policies -->
+        <div>
+          <h4>Policies</h4>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-conditions.html">Terms &amp; Conditions</a></li>
+            <li><a href="cookie-policy.html">Cookie Policy</a></li>
+          </ul>
+        </div>
+        <!-- Contact -->
+        <div>
+          <h4>Contact Us</h4>
+          <ul class="contact-list">
+            <li><svg class="icon">
+                <use href="#i-phone" />
+              </svg><span><a href="tel:+919999028148">+91 99990-28148</a><br><a href="tel:+919811541004">+91 98115-41004</a></span></li>
+            <li><svg class="icon">
+                <use href="#i-mail" />
+              </svg><span><a href="mailto:connect@lexmart.co.in">connect@lexmart.co.in</a></span></li>
+            <li><svg class="icon">
+                <use href="#i-pin" />
+              </svg><span><span style="white-space:nowrap;">Lexmart Corporate Solutions LLP</span><br>I-23, L.G.F., Lajpat Nagar- III,<br>New Delhi- 110024.</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2024 Lexmart Corporate Solutions LLP. All rights reserved.</span>
+        <span>Built for founders who move fast.</span>
+        <span>Developed by Brand Mindz</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
