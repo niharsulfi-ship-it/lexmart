@@ -1196,8 +1196,8 @@
       <div class="center"><span class="eyebrow">INSIGHTS</span></div>
       <h2 class="section-title">Latest Blogs</h2>
       <p class="section-sub">Practical guidance on regulation, structuring, and protecting what you build.</p>
-      <div class="blogs-grid">
-        <div class="blog-card" onclick="window.location.href='blog-detail.html';" style="cursor: pointer;">
+      <div class="blogs-grid" id="homeBlogsGrid" aria-live="polite" aria-busy="true">
+        <article class="blog-card">
           <div class="blog-thumb">
             <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&q=80" alt="Corporate Law blog">
           </div>
@@ -1208,8 +1208,8 @@
                 <use href="#i-arrow" />
               </svg></a>
           </div>
-        </div>
-        <div class="blog-card" onclick="window.location.href='blog-detail.html';" style="cursor: pointer;">
+        </article>
+        <article class="blog-card">
           <div class="blog-thumb">
             <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80" alt="Trademark blog">
           </div>
@@ -1220,8 +1220,8 @@
                 <use href="#i-arrow" />
               </svg></a>
           </div>
-        </div>
-        <div class="blog-card" onclick="window.location.href='blog-detail.html';" style="cursor: pointer;">
+        </article>
+        <article class="blog-card">
           <div class="blog-thumb">
             <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80" alt="Compliance blog">
           </div>
@@ -1232,7 +1232,7 @@
                 <use href="#i-arrow" />
               </svg></a>
           </div>
-        </div>
+        </article>
       </div>
     </div>
   </section>
@@ -1373,6 +1373,126 @@
   </footer>
 
   <script>
+    (function () {
+      'use strict';
+
+      const blogsGrid = document.getElementById('homeBlogsGrid');
+      const blogsEndpoint = 'https://lexmart.brandmindz.in/api/blogs.php';
+
+      if (!blogsGrid) return;
+
+      function formatDate(dateValue) {
+        if (!dateValue) return '';
+
+        const date = new Date(dateValue);
+        return Number.isNaN(date.getTime())
+          ? ''
+          : new Intl.DateTimeFormat('en-IN', {
+              day: 'numeric',
+              month: 'short',
+              year: 'numeric'
+            }).format(date);
+      }
+
+      function createBlogCard(blog) {
+        const detailUrl = `blog-detail.html?id=${encodeURIComponent(blog.id)}`;
+        const card = document.createElement('article');
+        card.className = 'blog-card';
+
+        const thumbnail = document.createElement('div');
+        thumbnail.className = 'blog-thumb';
+
+        if (blog.image_url) {
+          const image = document.createElement('img');
+          image.src = blog.image_url;
+          image.alt = blog.title ? `Featured image for ${blog.title}` : 'Blog article featured image';
+          image.loading = 'lazy';
+          image.decoding = 'async';
+          thumbnail.appendChild(image);
+        }
+
+        const body = document.createElement('div');
+        body.className = 'blog-body';
+
+        const tag = document.createElement('span');
+        tag.className = 'blog-tag';
+        tag.textContent = blog.category || 'Insights';
+
+        const date = document.createElement('time');
+        date.className = 'blog-date';
+        date.textContent = formatDate(blog.created_at);
+        if (blog.created_at) date.dateTime = blog.created_at;
+
+        const title = document.createElement('h3');
+        title.textContent = blog.title || 'Untitled article';
+
+        const link = document.createElement('a');
+        link.href = detailUrl;
+        link.setAttribute('aria-label', `Read article: ${blog.title || 'Untitled article'}`);
+        link.append('Read More ');
+
+        const icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        icon.setAttribute('class', 'icon');
+        icon.setAttribute('aria-hidden', 'true');
+        icon.style.cssText = 'width:14px;height:14px;';
+        const use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+        use.setAttribute('href', '#i-arrow');
+        icon.appendChild(use);
+        link.appendChild(icon);
+
+        body.append(tag, date, title, link);
+        card.append(thumbnail, body);
+        return card;
+      }
+
+      async function loadLatestBlogs() {
+        const controller = new AbortController();
+        const timeoutId = window.setTimeout(function () { controller.abort(); }, 8000);
+
+        try {
+          const response = await fetch(blogsEndpoint, {
+            headers: { Accept: 'application/json' },
+            signal: controller.signal
+          });
+          if (!response.ok) throw new Error(`Blog request failed: ${response.status}`);
+
+          const result = await response.json();
+          if (result.status !== 'success' || !Array.isArray(result.data)) {
+            throw new Error('Invalid blog API response');
+          }
+
+          const latestBlogs = result.data
+            .filter(function (blog) {
+              return blog && blog.id && String(blog.status || 'Published').toLowerCase() === 'published';
+            })
+            .sort(function (first, second) {
+              const firstTimestamp = Date.parse(first.created_at || '') || 0;
+              const secondTimestamp = Date.parse(second.created_at || '') || 0;
+              return secondTimestamp - firstTimestamp || Number(second.id) - Number(first.id);
+            })
+            .slice(0, 3);
+
+          if (latestBlogs.length === 0) {
+            const emptyMessage = document.createElement('p');
+            emptyMessage.textContent = 'No blog articles are available yet. Please check back soon.';
+            emptyMessage.style.cssText = 'grid-column:1 / -1;text-align:center;color:var(--ink-soft);';
+            blogsGrid.replaceChildren(emptyMessage);
+            return;
+          }
+
+          blogsGrid.replaceChildren(...latestBlogs.map(createBlogCard));
+        } catch (error) {
+          // Retain the static articles as a progressive-enhancement fallback.
+          console.error('Unable to load the latest blogs:', error);
+        } finally {
+          window.clearTimeout(timeoutId);
+          blogsGrid.setAttribute('aria-busy', 'false');
+        }
+      }
+
+      loadLatestBlogs();
+    }());
+
     function switchTab(index) {
       var tabs = document.querySelectorAll('.service-tab');
       var panels = document.querySelectorAll('.service-panel');
