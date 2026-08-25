@@ -360,22 +360,22 @@
         <div class="animate-slide-up delay-200">
           <div class="contact-form-card">
             <h3 style="font-size:24px; color:var(--blue-800); margin-bottom:24px;">Send us a Message</h3>
-            <form action="#" method="POST">
+            <form id="enquiryForm" novalidate>
               <div class="form-group">
-                <label class="form-label">Full Name</label>
-                <input type="text" class="form-input" placeholder="Enter your full name" required>
+                <label class="form-label" for="enquiryName">Full Name</label>
+                <input id="enquiryName" name="name" type="text" class="form-input" placeholder="Enter your full name" autocomplete="name" required>
               </div>
               <div class="form-group">
-                <label class="form-label">Email Address</label>
-                <input type="email" class="form-input" placeholder="Enter your email address" required>
+                <label class="form-label" for="enquiryEmail">Email Address</label>
+                <input id="enquiryEmail" name="email" type="email" class="form-input" placeholder="Enter your email address" autocomplete="email" required>
               </div>
               <div class="form-group">
-                <label class="form-label">Phone Number</label>
-                <input type="tel" class="form-input" placeholder="Enter your phone number">
+                <label class="form-label" for="enquiryPhone">Phone Number</label>
+                <input id="enquiryPhone" name="phone" type="tel" class="form-input" placeholder="Enter your phone number" autocomplete="tel">
               </div>
               <div class="form-group">
-                <label class="form-label">Service Required</label>
-                <select class="form-input" style="appearance:none; padding-right:40px;">
+                <label class="form-label" for="enquirySubject">Service Required</label>
+                <select id="enquirySubject" name="subject" class="form-input" style="appearance:none; padding-right:40px;">
                   <option value="">Select a service</option>
                   <option value="corporate-law">Corporate Law & Secretarial</option>
                   <option value="taxation">Taxation (GST / Income Tax)</option>
@@ -386,10 +386,11 @@
                 </select>
               </div>
               <div class="form-group">
-                <label class="form-label">Your Message</label>
-                <textarea class="form-textarea" placeholder="How can we help you?" required></textarea>
+                <label class="form-label" for="enquiryMessage">Your Message</label>
+                <textarea id="enquiryMessage" name="message" class="form-textarea" placeholder="How can we help you?" required></textarea>
               </div>
-              <button type="submit" class="btn btn-primary"
+              <p id="enquiryStatus" role="status" aria-live="polite" style="margin:0 0 16px; font-size:14px;"></p>
+              <button type="submit" class="btn btn-primary" id="enquirySubmit"
                 style="width:100%; justify-content:center; padding:16px;">Send Message</button>
             </form>
           </div>
@@ -479,6 +480,55 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      const form = document.getElementById('enquiryForm');
+      const submitButton = document.getElementById('enquirySubmit');
+      const statusMessage = document.getElementById('enquiryStatus');
+      const endpoint = 'https://lexmart.brandmindz.in/api/enquiry.php';
+
+      if (!form || !submitButton || !statusMessage) return;
+
+      function showStatus(message, isError) {
+        statusMessage.textContent = message;
+        statusMessage.style.color = isError ? '#b91c1c' : '#047857';
+      }
+
+      form.addEventListener('submit', async function (event) {
+        event.preventDefault();
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending...';
+        showStatus('', false);
+
+        try {
+          const response = await fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+            body: JSON.stringify(Object.fromEntries(new FormData(form).entries()))
+          });
+          const result = await response.json();
+          if (!response.ok || result.status !== 'success') {
+            throw new Error(result.message || 'Unable to submit your enquiry.');
+          }
+
+          form.reset();
+          showStatus('Thank you. Your enquiry has been sent successfully.', false);
+        } catch (error) {
+          console.error('Unable to submit enquiry:', error);
+          showStatus(error.message || 'Unable to send your enquiry. Please try again.', true);
+        } finally {
+          submitButton.disabled = false;
+          submitButton.textContent = 'Send Message';
+        }
+      });
+    }());
+  </script>
 
 </body>
 

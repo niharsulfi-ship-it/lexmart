@@ -93,7 +93,7 @@ if ($method === 'GET') {
             
         } else {
             // Insert new blog
-            $stmt = $conn->prepare("INSERT INTO blogs (title, category, short_description, content, slug, image, status) VALUES (:title, :category, :short_desc, :content, :slug, :image, 'Draft')");
+            $stmt = $conn->prepare("INSERT INTO blogs (title, category, short_description, content, slug, image, status) VALUES (:title, :category, :short_desc, :content, :slug, :image, 'Published')");
             $params = ['title'=>$title, 'category'=>$category, 'short_desc'=>$short_description, 'content'=>$content, 'slug'=>$slug, 'image'=>$imageName];
             
             $success = $stmt->execute($params);

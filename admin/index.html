@@ -104,6 +104,25 @@
         </table>
       </div>
     </div>
+
+    <div class="modal-overlay" id="enquiryModal" aria-hidden="true">
+      <section class="modal enquiry-modal" role="dialog" aria-modal="true" aria-labelledby="enquiryModalTitle">
+        <div class="enquiry-modal-header">
+          <h3 id="enquiryModalTitle">Enquiry details</h3>
+          <button type="button" class="modal-close" id="closeEnquiryModal" aria-label="Close enquiry details">&times;</button>
+        </div>
+        <dl class="enquiry-details">
+          <div><dt>Name</dt><dd id="modalEnquiryName"></dd></div>
+          <div><dt>Email</dt><dd id="modalEnquiryEmail"></dd></div>
+          <div><dt>Phone</dt><dd id="modalEnquiryPhone"></dd></div>
+          <div><dt>Subject</dt><dd id="modalEnquirySubject"></dd></div>
+          <div class="enquiry-message"><dt>Message</dt><dd id="modalEnquiryMessage"></dd></div>
+        </dl>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-primary" id="enquiryModalDone">Done</button>
+        </div>
+      </section>
+    </div>
   </main>
 
   <script>
@@ -112,11 +131,45 @@
       window.location.href = 'login.html';
     }
 
-    // Fetch Dynamic Data from API
+    const enquiriesEndpoint = 'https://lexmart.brandmindz.in/api/enquiry.php';
+
+    function closeEnquiryModal() {
+      const modal = document.getElementById('enquiryModal');
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
+    }
+
+    function showEnquiryModal(enquiry) {
+      document.getElementById('modalEnquiryName').textContent = enquiry.name || 'N/A';
+      document.getElementById('modalEnquiryEmail').textContent = enquiry.email || 'N/A';
+      document.getElementById('modalEnquiryPhone').textContent = enquiry.phone || 'Not provided';
+      document.getElementById('modalEnquirySubject').textContent = enquiry.service || enquiry.subject || 'Not specified';
+      document.getElementById('modalEnquiryMessage').textContent = enquiry.message || 'No message provided.';
+
+      const modal = document.getElementById('enquiryModal');
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+    }
+
+    async function markEnquiryAsViewed(enquiry) {
+      if (Number(enquiry.is_read) === 1) return;
+
+      const response = await fetch(`${enquiriesEndpoint}?action=mark-read`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ id: enquiry.id })
+      });
+      const result = await response.json();
+      if (!response.ok || result.status !== 'success') {
+        throw new Error(result.message || 'Unable to mark enquiry as viewed.');
+      }
+    }
+
+    // Fetch dynamic data from the API.
     async function loadEnquiries() {
       const tableBody = document.getElementById('enquiryTableBody');
       try {
-        const response = await fetch('https://lexmart.brandmindz.in/api/enquiry.php');
+        const response = await fetch(enquiriesEndpoint);
         
         // Handle if user is on Live Server and PHP didn't execute
         if (!response.ok) throw new Error('API request failed');
@@ -134,24 +187,52 @@
           tableBody.innerHTML = '';
           data.data.forEach(enq => {
             const tr = document.createElement('tr');
-            // Assuming default DB columns: date/created_at, name, email, phone, subject, status
             const dateStr = enq.created_at ? new Date(enq.created_at).toLocaleDateString() : 'N/A';
-            const status = enq.status || 'Pending';
-            const statusClass = status.toLowerCase() === 'pending' ? 'badge-warning' : 'badge-success';
-            
-            tr.innerHTML = `
-              <td>${dateStr}</td>
-              <td>${enq.name || 'N/A'}</td>
-              <td>${enq.email || 'N/A'}<br><small>${enq.phone || ''}</small></td>
-              <td>${enq.subject || 'No Subject'}</td>
-              <td><span class="badge ${statusClass}">${status}</span></td>
-              <td>
-                <div class="action-buttons">
-                  <button class="btn-outline">View</button>
-                  <button class="btn-danger">Delete</button>
-                </div>
-              </td>
-            `;
+            const isViewed = Number(enq.is_read) === 1;
+            const status = isViewed ? 'Viewed' : 'New';
+            const statusClass = isViewed ? 'badge-success' : 'badge-warning';
+
+            const createCell = function (value) {
+              const cell = document.createElement('td');
+              cell.textContent = value;
+              return cell;
+            };
+            const contactCell = document.createElement('td');
+            contactCell.append(document.createTextNode(enq.email || 'N/A'));
+            if (enq.phone) {
+              const phone = document.createElement('small');
+              phone.textContent = enq.phone;
+              contactCell.append(document.createElement('br'), phone);
+            }
+            const statusCell = document.createElement('td');
+            const badge = document.createElement('span');
+            badge.className = `badge ${statusClass}`;
+            badge.textContent = status;
+            statusCell.appendChild(badge);
+            const actionsCell = document.createElement('td');
+            const viewButton = document.createElement('button');
+            viewButton.type = 'button';
+            viewButton.className = 'btn-outline';
+            viewButton.textContent = 'View';
+            viewButton.addEventListener('click', async function () {
+              showEnquiryModal(enq);
+              try {
+                await markEnquiryAsViewed(enq);
+                loadEnquiries();
+              } catch (error) {
+                console.error('Unable to mark enquiry as viewed:', error);
+              }
+            });
+            actionsCell.appendChild(viewButton);
+
+            tr.append(
+              createCell(dateStr),
+              createCell(enq.name || 'N/A'),
+              contactCell,
+              createCell(enq.service || enq.subject || 'No Subject'),
+              statusCell,
+              actionsCell
+            );
             tableBody.appendChild(tr);
           });
         } else {
@@ -163,8 +244,17 @@
       }
     }
 
-    // Load data when page loads
-    document.addEventListener('DOMContentLoaded', loadEnquiries);
+    document.addEventListener('DOMContentLoaded', function () {
+      loadEnquiries();
+      document.getElementById('closeEnquiryModal').addEventListener('click', closeEnquiryModal);
+      document.getElementById('enquiryModalDone').addEventListener('click', closeEnquiryModal);
+      document.getElementById('enquiryModal').addEventListener('click', function (event) {
+        if (event.target === this) closeEnquiryModal();
+      });
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') closeEnquiryModal();
+      });
+    });
   </script>
 </body>
 </html>
