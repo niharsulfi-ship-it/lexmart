@@ -76,93 +76,28 @@
     font-family:'Inter',sans-serif;
   }
   .btn:hover{transform:translateY(-2px);}
-  .btn-primary{
-    background:var(--blue-700);
-    color:#ffffff;
-    box-shadow:0 12px 24px rgba(12,70,187,0.35);
-  }
-  .btn-outline{
-    background:#ffffff;
-    color:var(--ink);
-    border:1.5px solid var(--border);
-  }
-  .btn-white{
-    background:#ffffff;
-    color:var(--blue-700);
-  }
+  .btn-primary{ background:var(--blue-700); color:#ffffff; box-shadow:0 12px 24px rgba(12,70,187,0.35); }
+  .btn-white{ background:#ffffff; color:var(--blue-700); }
+  .btn-teal{ background:var(--blue-700); color:#ffffff; box-shadow:0 8px 16px rgba(12,70,187,0.3); border:none; }
+  .btn-teal:hover{ box-shadow:0 12px 24px rgba(12,70,187,0.45); }
   .icon{width:20px; height:20px; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round;}
 
   /* Header */
-  header{
-    position:sticky; top:0; z-index:50;
-    background:#ffffff;
-    box-shadow: 0 1px 10px rgba(12,70,187,0.1);
-    overflow: visible;
-  }
-  .nav-wrap{
-    display:flex; align-items:center; justify-content:center;
-    padding:30px 24px;
-    max-width:1300px;
-    margin:0 auto;
-    position: relative;
-    overflow: visible;
-  }
-  .logo{
-    display:flex; align-items:center; gap:12px;
-    font-family:'Poppins',sans-serif;
-    font-weight:700; font-size:30.8px;
-    color:var(--blue-700);
-    letter-spacing: 1px;
-    height: 90px;
-    position: absolute;
-    left: 24px;
-    overflow: visible;
-  }
-  .logo img {
-    height: 220px !important;
-    width: auto !important;
-    margin: -65px 0;
-    padding: 0;
-    display: block;
-  }
-  .logo-mark{
-    width:38px; height:38px;
-    display:flex; align-items:center; justify-content:center;
-    color:var(--blue-700); flex-shrink:0;
-  }
+  header{ position:sticky; top:0; z-index:50; background:#ffffff; box-shadow:0 1px 10px rgba(12,70,187,0.1); overflow:visible; }
+  .nav-wrap{ display:flex; align-items:center; justify-content:space-between; padding:16px 32px; max-width:1400px; margin:0 auto; overflow:visible; gap:24px; }
+  .logo{ display:flex; align-items:center; gap:12px; font-family:'Poppins',sans-serif; font-weight:700; font-size:30.8px; color:var(--blue-700); letter-spacing:1px; height:90px; flex-shrink:0; overflow:visible; }
+  .logo img{ height:130px !important; width:auto !important; display:block; }
+  .logo-mark{ width:38px; height:38px; display:flex; align-items:center; justify-content:center; color:var(--blue-700); flex-shrink:0; }
   .logo-mark svg{width:38px; height:38px; fill:none; stroke:currentColor;}
-  nav.links{
-    display:flex; gap:36px; font-size:18.7px; font-weight:600; color:var(--ink);
-  }
-  nav.links a{display:flex; align-items:center; gap:4px; padding: 4px 0;}
-  nav.links a.active{
-    color:var(--blue-700);
-    border-bottom: 2px solid var(--blue-700);
-  }
+  nav.links{ flex:1; display:flex; justify-content:center; gap:36px; font-size:18.7px; font-weight:600; color:var(--ink); }
+  nav.links a{display:flex; align-items:center; gap:4px; padding:4px 0;}
+  nav.links a.active{ color:var(--blue-700); border-bottom:2px solid var(--blue-700); }
   nav.links a:hover{color:var(--blue-700);}
-  
-  /* Hide internal service details in dropdown */
-  .di-text span {
-    display: none !important;
-  }
-
-  .btn-teal{
-    background:var(--blue-700);
-    color:#ffffff;
-    box-shadow:0 8px 16px rgba(12,70,187,0.3);
-    border: none;
-  }
-  .btn-teal:hover{
-    box-shadow:0 12px 24px rgba(12,70,187,0.45);
-  }
+  .di-text span { display:none !important; }
+  .btn-consult{ flex-shrink:0; }
 
   /* Hero */
-  .hero{
-    position:relative;
-    padding:0;
-    background:linear-gradient(135deg, #eef4ff 0%, #ffffff 100%);
-    overflow:visible;
-  }
+  .hero{ position:relative; padding:0; background:linear-gradient(135deg, #eef4ff 0%, #ffffff 100%); overflow:visible; }
   .hero-grid{
     display:grid;
     grid-template-columns:1fr 1.1fr;
@@ -1234,8 +1169,8 @@
    TABLET BREAKPOINT (≤ 900px)
 ══════════════════════════════════════ */
 /* Consultation button layout */
-.nav-wrap { display: flex; align-items: center; justify-content: center; position: relative; }
-.btn-consult { position: absolute; right: 24px; top: 50%; transform: translateY(-50%); flex-shrink: 0; }
+.btn-consult { flex-shrink: 0; margin-left: 24px; }
+nav.links { flex: 1; display: flex; justify-content: center; gap: 36px; font-size: 18.7px; font-weight: 600; }
 
 @media (max-width: 900px) {
   /* Header */
@@ -1384,3 +1319,6 @@
   .dropdown-divider { margin: 4px 0; }
   .faq-q { font-size: 15px; }
 }
+
+/* == Social links hidden (re-enable by removing this rule) == */
+footer .social-row { display: none; }
