@@ -79,14 +79,6 @@
       gap: 12px;
     }
 
-    .bd-author img {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid rgba(255, 255, 255, 0.2);
-    }
-
     .bd-author span {
       color: #fff;
       font-weight: 600;
@@ -125,20 +117,27 @@
       font-size: 28px;
       color: var(--blue-800);
       margin: 40px 0 20px;
+      padding: 12px 16px;
+      border-left: 4px solid var(--blue-700);
+      border-radius: 0 8px 8px 0;
+      background: var(--blue-50);
       font-weight: 700;
       font-family: 'Poppins', sans-serif;
     }
 
     .bd-content h3 {
       font-size: 22px;
-      color: var(--ink);
+      color: var(--blue-800);
       margin: 30px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--blue-100);
       font-weight: 700;
     }
 
     .bd-content ul {
       margin-bottom: 24px;
-      padding-left: 20px;
+      padding-left: 28px;
+      list-style: disc;
       color: var(--ink-soft);
       line-height: 1.8;
       font-size: 16px;
@@ -389,6 +388,7 @@
             </a>
           </div>
         </li>
+        <a href="team.html">Team</a>
         <a href="blogs.html" class="active">Blogs</a>
         <a href="contact.html">Contact</a>
       </nav>
@@ -426,9 +426,7 @@
       </div>
       <h1 class="animate-slide-up delay-200" id="blogTitle">GST Registration: When Is It Mandatory and Why Does It Matter?</h1>
       <div class="bd-author animate-slide-up delay-300">
-        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=100"
-          alt="Author">
-        <span id="blogAuthor">By Rahul Sharma, Managing Partner</span>
+        <span id="blogAuthor">By Lexmart</span>
       </div>
     </div>
   </section>
@@ -555,8 +553,9 @@
 
       <!-- Sidebar -->
       <aside class="bd-sidebar">
-        <div class="sidebar-widget">
-          <h4>Recent Articles</h4>
+        <div class="sidebar-widget" id="relatedBlogsWidget">
+          <h4>Latest Articles</h4>
+          <div id="relatedBlogs">
           <a href="#" class="recent-post">
             <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=150"
               alt="Thumb">
@@ -581,24 +580,26 @@
               <span>Aug 30, 2024</span>
             </div>
           </a>
+          </div>
         </div>
 
         <div class="sidebar-widget">
           <h4>Share this post</h4>
           <div class="share-widget">
-            <a href="#" class="share-btn"><svg class="icon" style="width:18px;height:18px;">
-                <use href="#i-linkedin" />
-              </svg></a>
-            <a href="#" class="share-btn"><svg class="icon" style="width:18px;height:18px;">
-                <use href="#i-twitter" />
-              </svg></a>
-            <a href="#" class="share-btn"><svg class="icon" style="width:18px;height:18px;">
-                <use href="#i-facebook" />
-              </svg></a>
-            <a href="#" class="share-btn"><svg class="icon" style="width:18px;height:18px;">
-                <use href="#i-link" />
-              </svg></a>
+            <a href="#" class="share-btn" id="shareLinkedIn" aria-label="Share on LinkedIn"><svg class="icon" style="width:18px;height:18px;">
+              <use href="#i-linkedin" />
+            </svg></a>
+            <a href="#" class="share-btn" id="shareTwitter" aria-label="Share on X"><svg class="icon" style="width:18px;height:18px;">
+              <use href="#i-twitter" />
+            </svg></a>
+            <a href="#" class="share-btn" id="shareFacebook" aria-label="Share on Facebook"><svg class="icon" style="width:18px;height:18px;">
+              <use href="#i-facebook" />
+            </svg></a>
+            <a href="#" class="share-btn" id="copyPostLink" aria-label="Copy post link"><svg class="icon" style="width:18px;height:18px;">
+              <use href="#i-link" />
+            </svg></a>
           </div>
+          <p id="shareStatus" role="status" aria-live="polite" style="margin:12px 0 0; color:var(--ink-soft); font-size:13px;"></p>
         </div>
       </aside>
     </div>
@@ -700,6 +701,82 @@
         }).format(date);
       }
 
+      function renderLatestBlogs(blogs) {
+        const relatedContainer = document.getElementById('relatedBlogs');
+        const relatedWidget = document.getElementById('relatedBlogsWidget');
+        if (!relatedContainer || !relatedWidget) return;
+
+        const latestBlogs = blogs
+          .filter(function (item) { return String(item.id) !== String(blogId); })
+          .sort(function (first, second) {
+            return new Date(second.created_at).getTime() - new Date(first.created_at).getTime();
+          })
+          .slice(0, 3);
+
+        relatedContainer.replaceChildren();
+        if (!latestBlogs.length) {
+          relatedWidget.hidden = true;
+          return;
+        }
+
+        latestBlogs.forEach(function (item) {
+          const link = document.createElement('a');
+          link.className = 'recent-post';
+          link.href = `blog-detail.html?id=${encodeURIComponent(item.id)}`;
+
+          if (item.image_url) {
+            const image = document.createElement('img');
+            image.src = item.image_url;
+            image.alt = item.title || 'Blog article';
+            image.loading = 'lazy';
+            link.appendChild(image);
+          }
+
+          const text = document.createElement('div');
+          text.className = 'rp-text';
+          const title = document.createElement('strong');
+          title.textContent = item.title || 'Untitled article';
+          const date = document.createElement('span');
+          date.textContent = formatDate(item.created_at);
+          text.append(title, date);
+          link.appendChild(text);
+          relatedContainer.appendChild(link);
+        });
+      }
+
+      function setShareLinks(blog) {
+        const postUrl = window.location.href;
+        const title = blog.title || document.title;
+        const encodedUrl = encodeURIComponent(postUrl);
+        const encodedTitle = encodeURIComponent(title);
+        const links = {
+          shareLinkedIn: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
+          shareTwitter: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`,
+          shareFacebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`
+        };
+
+        Object.entries(links).forEach(function ([id, href]) {
+          const link = document.getElementById(id);
+          if (!link) return;
+          link.href = href;
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+        });
+
+        const copyLink = document.getElementById('copyPostLink');
+        const shareStatus = document.getElementById('shareStatus');
+        if (!copyLink) return;
+        copyLink.addEventListener('click', async function (event) {
+          event.preventDefault();
+          try {
+            await navigator.clipboard.writeText(postUrl);
+            if (shareStatus) shareStatus.textContent = 'Post link copied.';
+          } catch (_) {
+            if (shareStatus) shareStatus.textContent = 'Copy the link from your browser address bar.';
+          }
+        });
+      }
+
       function appendSafeContent(container, content) {
         const source = String(content || '').trim();
         if (!source) {
@@ -710,10 +787,59 @@
         }
 
         if (!/<[a-z][\s\S]*>/i.test(source)) {
-          source.split(/\n{2,}/).forEach(function (paragraph) {
+          const isSectionHeading = function (line) {
+            return line.length <= 90 && /^(What |When |Why |How |Common Mistakes|Conclusion$)/i.test(line);
+          };
+          const isNumberedHeading = function (line) {
+            return /^\d+\.\s+\S/.test(line);
+          };
+          const appendParagraph = function (lines) {
+            const text = lines.join(' ').trim();
+            if (!text) return;
             const element = document.createElement('p');
-            element.textContent = paragraph.trim();
-            if (element.textContent) container.appendChild(element);
+            element.textContent = text;
+            container.appendChild(element);
+          };
+          const appendList = function (items) {
+            const list = document.createElement('ul');
+            items.forEach(function (item) {
+              const listItem = document.createElement('li');
+              listItem.textContent = item.replace(/^[-•*]\s*/, '');
+              list.appendChild(listItem);
+            });
+            container.appendChild(list);
+          };
+
+          source.replace(/\r\n?/g, '\n').split(/\n\s*\n/).forEach(function (block) {
+            const lines = block.split('\n').map(function (line) { return line.trim(); }).filter(Boolean);
+            if (!lines.length) return;
+
+            while (lines.length && isSectionHeading(lines[0])) {
+              const heading = document.createElement('h2');
+              heading.textContent = lines.shift();
+              container.appendChild(heading);
+            }
+            while (lines.length && isNumberedHeading(lines[0])) {
+              const subheading = document.createElement('h3');
+              subheading.textContent = lines.shift();
+              container.appendChild(subheading);
+            }
+
+            if (!lines.length) return;
+
+            let listEnd = 0;
+            while (listEnd < lines.length && lines[listEnd].length <= 140 &&
+              !isSectionHeading(lines[listEnd]) && !isNumberedHeading(lines[listEnd]) &&
+              !/^(The |Therefore|Professional |Our |At )/i.test(lines[listEnd])) {
+              listEnd += 1;
+            }
+
+            if (listEnd >= 3) {
+              appendList(lines.slice(0, listEnd));
+              appendParagraph(lines.slice(listEnd));
+            } else {
+              appendParagraph(lines);
+            }
           });
           return;
         }
@@ -766,7 +892,7 @@
           document.getElementById('blogCategory').textContent = blog.category || 'Insights';
           document.getElementById('blogDateText').textContent = formatDate(blog.created_at);
           document.getElementById('blogTitle').textContent = blog.title || 'Untitled article';
-          document.getElementById('blogAuthor').textContent = 'By Lexmart Editorial Team';
+          document.getElementById('blogAuthor').textContent = 'By Lexmart';
           document.title = `${blog.meta_title || blog.title || 'Blog'} | Lexmart`;
 
           contentElement.replaceChildren();
@@ -778,6 +904,8 @@
             contentElement.appendChild(image);
           }
           appendSafeContent(contentElement, blog.content || blog.short_description);
+          renderLatestBlogs(result.data);
+          setShareLinks(blog);
         } catch (error) {
           // Preserve the existing static article as a fallback.
           console.error('Unable to load blog details from the database:', error);
