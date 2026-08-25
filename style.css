@@ -1117,7 +1117,7 @@
   padding: 80px 24px 40px;
   overflow-y: auto;
 }
-.mobile-nav.open { display: flex; }
+.mobile-nav.open { display: flex !important; }
 .mobile-nav a {
   font-size: 22px;
   font-weight: 600;
