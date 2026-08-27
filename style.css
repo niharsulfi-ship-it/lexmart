@@ -1360,5 +1360,6 @@ nav.links { flex: 1; display: flex; justify-content: center; gap: 36px; font-siz
   .faq-q { font-size: 15px; }
 }
 
-/* == Social links hidden (re-enable by removing this rule) == */
-footer .social-row { display: none; }
+/* == Social media icons hidden site-wide (re-enable by removing this rule) == */
+.social-row,
+.share-btn { display: none !important; }
