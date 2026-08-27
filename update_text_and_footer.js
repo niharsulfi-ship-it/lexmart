@@ -34,14 +34,6 @@ function processDir(dir) {
                 }
             }
 
-            // 3. about.html text replacements
-            if (file === 'about.html') {
-                const aboutRegex = /Since 2022/ig;
-                if (aboutRegex.test(content)) {
-                    content = content.replace(aboutRegex, 'Since 2022');
-                    modified = true;
-                }
-            }
 
             // 4. Global address replacement (in footer and contact page)
             // Footer address
