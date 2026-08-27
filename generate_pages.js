@@ -15,7 +15,7 @@ const headerHTML = headerMatch[1];
 const footerHTML = footerMatch[1];
 
 function createPage(filename, title, content) {
-    let pageHeader = headerHTML.replace(/<title>.*?<\/title>/, `<title>${title} - Lexmart | Legal & Business Advisors</title>`);
+    let pageHeader = headerHTML.replace(/<title>.*?<\/title>/, `<title>${title} - Lexmart | Corporate & Business Advisors</title>`);
     pageHeader = pageHeader.replace(/class="active"/g, "");
 
     const pageContent = `

@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us - Lexmart | Legal &amp; Business Advisors</title>
+  <title>About Us - Lexmart | Corporate &amp; Business Advisors</title>
   <meta name="description"
-    content="Learn about Lexmart Corporate Solutions LLP — our story, mission, leadership team, and the values that drive India's most trusted legal advisory firm.">
+    content="Learn about Lexmart Corporate Solutions LLP — our story, mission, leadership team, and the values that drive India's trusted corporate advisory firm.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
@@ -524,6 +524,79 @@
       border: 1px solid var(--blue-100);
     }
 
+    .founder-experience {
+      padding: 70px 0;
+      background: #ffffff;
+    }
+
+    .founder-experience-card {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      align-items: center;
+      gap: 46px;
+      padding: 44px 54px;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid #dbe7ff;
+      border-radius: 24px;
+      background: linear-gradient(120deg, #f7faff 0%, #edf4ff 100%);
+      box-shadow: 0 18px 48px rgba(12, 70, 187, .12);
+    }
+
+    .founder-experience-card::after {
+      content: "";
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      right: -90px;
+      top: -110px;
+      border-radius: 50%;
+      background: rgba(45, 110, 230, .09);
+    }
+
+    .experience-count {
+      width: 180px;
+      height: 180px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+      border-radius: 50%;
+      color: #ffffff;
+      background: linear-gradient(135deg, var(--blue-900), #3978ee);
+      box-shadow: 0 18px 38px rgba(12, 70, 187, .3);
+    }
+
+    .experience-count strong {
+      font-family: 'Poppins', sans-serif;
+      font-size: 58px;
+      line-height: .95;
+      letter-spacing: -3px;
+    }
+
+    .experience-count span {
+      margin-top: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .experience-copy { position: relative; z-index: 1; }
+    .experience-copy h2 { margin: 10px 0 12px; font-size: 30px; color: var(--ink); }
+    .experience-copy p { max-width: 720px; margin: 0; color: var(--ink-soft); font-size: 16px; line-height: 1.75; }
+
+    @media (max-width: 700px) {
+      .founder-experience { padding: 44px 0; }
+      .founder-experience-card { grid-template-columns: 1fr; gap: 28px; padding: 34px 24px; text-align: center; }
+      .experience-count { width: 150px; height: 150px; margin: 0 auto; }
+      .experience-count strong { font-size: 50px; }
+      .experience-copy h2 { font-size: 24px; }
+      .experience-copy p { font-size: 15px; }
+    }
+
     .associates-title {
       font-size: 26px;
       font-weight: 700;
@@ -968,7 +1041,7 @@
     <div class="about-hero-inner animate-slide-up delay-200">
       <span class="eyebrow">ABOUT LEXMART</span>
       <h1>Expert Business Solutions <br><span class="highlight">Empowering Business</span></h1>
-      <p>Lexmart Corporate Solutions LLP is a full-service legal and compliance firm empowering startups, SMEs, and
+      <p>Lexmart Corporate Solutions LLP is a full-service corporate and compliance firm empowering startups, SMEs, and
         enterprises to navigate complex regulations with clarity, confidence, and precision.</p>
     </div>
   </section>
@@ -1012,22 +1085,22 @@
         </div>
         <div class="story-content">
           <span class="eyebrow">OUR STORY</span>
-          <h2>Built to <span>Simplify</span> Legal for Business</h2>
+          <h2>Built to <span>Simplify</span> Compliance for Business</h2>
           <p>Lexmart Corporate Solutions LLP was built with a clear purpose  to provide businesses with reliable,
-            practical, and comprehensive legal and advisory solutions under one roof.</p>
+            practical, and comprehensive corporate and advisory solutions under one roof.</p>
           <p>With decades of collective professional experience, our team of Chartered Accountants, Lawyers, Insolvency
             Professionals, and Company Secretaries brings together diverse expertise across taxation, corporate and
-            legal compliance, insolvency, restructuring, mergers and acquisitions, litigation, and financial advisory.
+            regulatory compliance, insolvency, restructuring, mergers and acquisitions, litigation, and financial advisory.
           </p>
           <p>We believe that every business has unique challenges and deserves a solution tailored to its needs. Our
-            approach combines strong legal and regulatory knowledge with practical, solution-oriented thinking, enabling
+            approach combines strong corporate and regulatory knowledge with practical, solution-oriented thinking, enabling
             our clients to navigate complex business and compliance requirements with greater confidence and clarity.
           </p>
           <p>From routine compliance to complex corporate matters, we work closely with our clients to understand their
             objectives, provide personalized guidance, and build long-term professional relationships based on trust,
             responsiveness, and results.</p>
           <div class="story-quote">
-            "Our goal is not just to provide legal advice, but to be true partners in every stage of your business
+            "Our goal is not just to provide professional advice, but to be true partners in every stage of your business
             journey."
           </div>
         </div>
@@ -1051,7 +1124,7 @@
             </svg></div>
           <h3>Our Vision</h3>
           <ul>
-            <li>To be a trusted and leading corporate legal and advisory partner.</li>
+            <li>To be a trusted and leading corporate and advisory partner.</li>
             <li>Most Preferred Work Place.</li>
           </ul>
         </div>
@@ -1062,7 +1135,7 @@
           <h3>Our Mission</h3>
           <p>At Lexmart Corporate Solutions LLP, our mission is to:</p>
           <ul>
-            <li>Deliver client-centric legal and consulting services across Taxation, Compliance, Insolvency, and
+            <li>Deliver client-centric professional and consulting services across Taxation, Compliance, Insolvency, and
               M&amp;A with the highest standards of integrity.</li>
             <li>Empower clients to navigate regulatory complexities with confidence, building long-term relationships
               through reliable, proactive counsel.</li>
@@ -1126,7 +1199,7 @@
       <div class="center">
         <span class="eyebrow">OUR LEADERSHIP</span>
         <h2 class="section-title">Meet the Partners</h2>
-        <p class="section-sub">The legal minds and strategic thinkers at the helm of Lexmart Corporate Solutions.</p>
+        <p class="section-sub">The experienced professionals and strategic thinkers at the helm of Lexmart Corporate Solutions.</p>
       </div>
 
       <div class="partners-row">
@@ -1135,11 +1208,11 @@
           <div class="partner-avatar">GG</div>
           <div class="partner-body">
             <h3>Mr. Gagan Gulati</h3>
-            <div class="role">Founder Member &ndash; Legal &amp; IBC Advisory</div>
+            <div class="role">Founder Member &ndash; Corporate &amp; IBC Advisory</div>
             <div class="quals">Insolvency Professional, LL.B., B.Com (H)</div>
             <p>Mr. Gagan Gulati is a seasoned Advocate and Registered Insolvency Professional with over 22 years of
-              extensive experience in corporate legal advisory and dispute resolution. With deep legal acumen, he plays
-              a pivotal role in guiding clients through complex legal frameworks and restructuring processes.</p>
+              extensive experience in corporate advisory and dispute resolution. With deep professional acumen, he plays
+              a pivotal role in guiding clients through complex regulatory frameworks and restructuring processes.</p>
             <div class="partner-tags">
               <span class="partner-tag">IBC</span>
               <span class="partner-tag">Amalgamations</span>
@@ -1157,7 +1230,7 @@
             <div class="role">Partner &ndash; Corporate Restructuring &amp; Compliance</div>
             <div class="quals">LL.B., FCS, B.Com</div>
             <p>Mr. Nitin Kumar is an experienced Advocate and a Fellow Member of the ICSI. With over 15 years of
-              professional experience, he brings a sharp legal mind and deep regulatory knowledge. His comprehensive
+              professional experience, he brings a sharp analytical mind and deep regulatory knowledge. His comprehensive
               understanding of corporate laws enables clients to achieve compliant and strategically sound business
               outcomes.</p>
             <div class="partner-tags">
@@ -1173,10 +1246,10 @@
           <div class="partner-avatar">YB</div>
           <div class="partner-body">
             <h3>Ms. Yogita Bhatia</h3>
-            <div class="role">Partner &ndash; Secretarial &amp; Legal Compliances</div>
+            <div class="role">Partner &ndash; Secretarial &amp; Regulatory Compliances</div>
             <div class="quals">LL.B., FCS, B.Com (H)</div>
             <p>Ms. Yogita Bhatia is a Fellow Member of the ICSI and an accomplished Advocate. She brings extensive
-              experience in Corporate Secretarial and Legal Compliance, with over 12 years of professional experience.
+              experience in Corporate Secretarial and Regulatory Compliance, with over 12 years of professional experience.
               Her expertise helps businesses stay aligned with evolving regulatory requirements.</p>
             <div class="partner-tags">
               <span class="partner-tag">SEBI Compliances</span>
@@ -1205,7 +1278,68 @@
 
             </div>
           </div>
+        </div>
+      </div>
+    </div>
   </section>
+
+  <!-- -- FOUNDER EXPERIENCE -- -->
+  <section class="founder-experience" aria-labelledby="founderExperienceTitle">
+    <div class="container">
+      <div class="founder-experience-card">
+        <div class="experience-count" aria-label="More than two decades">
+          <strong id="founderExperienceCount" data-target="2">+0</strong>
+          <span>Decades</span>
+        </div>
+        <div class="experience-copy">
+          <span class="eyebrow">PROVEN EXPERIENCE</span>
+          <h2 id="founderExperienceTitle">Over Two Decades of Professional Excellence</h2>
+          <p>Backed by more than two decades of collective professional experience, our multidisciplinary team delivers trusted expertise across corporate advisory, insolvency, restructuring, intellectual property rights, and dispute resolution.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      var counter = document.getElementById('founderExperienceCount');
+      var target = Number(counter.dataset.target);
+      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function runCounter() {
+        if (reduceMotion) {
+          counter.textContent = '+' + target;
+          return;
+        }
+
+        var startTime;
+        var duration = 1200;
+
+        function update(timestamp) {
+          if (!startTime) startTime = timestamp;
+          var progress = Math.min((timestamp - startTime) / duration, 1);
+          var easedProgress = 1 - Math.pow(1 - progress, 3);
+          counter.textContent = '+' + Math.floor(easedProgress * target);
+          if (progress < 1) requestAnimationFrame(update);
+        }
+
+        requestAnimationFrame(update);
+      }
+
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function (entries) {
+          if (entries[0].isIntersecting) {
+            runCounter();
+            observer.disconnect();
+          }
+        }, { threshold: 0.45 });
+        observer.observe(counter);
+      } else {
+        runCounter();
+      }
+    })();
+  </script>
+
   <footer>
     <div class="container">
       <div class="footer-grid">
@@ -1215,7 +1349,7 @@
             <img src="images/white_logo.png" alt="Lexmart Logo"
               style="height:140px; width:auto; object-fit:contain; border-radius:8px;">
           </a>
-          <p>Legal and business consulting for startups, SMEs, and enterprises &ndash; from incorporation to ongoing
+          <p>Corporate and business consulting for startups, SMEs, and enterprises &ndash; from incorporation to ongoing
             compliance.</p>
           <div class="social-row">
             <a class="social-circle" href="#"><svg class="icon" style="width:16px;height:16px;">

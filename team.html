@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Us - Lexmart | Legal &amp; Business Advisors</title>
-<meta name="description" content="Learn about Lexmart Corporate Solutions LLP — our story, mission, leadership team, and the values that drive India's most trusted legal advisory firm.">
+<title>Team - Lexmart | Corporate &amp; Business Advisors</title>
+<meta name="description" content="Meet the professionals and strategic thinkers behind Lexmart's trusted corporate advisory services.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=4.3">
@@ -384,6 +384,58 @@
   .partner-body .role { font-size: 13px; font-weight: 600; color: var(--blue-700); margin-bottom: 4px; }
   .partner-body .quals { font-size: 11.5px; color: var(--ink-soft); margin-bottom: 14px; }
   .partner-body p { font-size: 13.5px; color: var(--ink-soft); line-height: 1.6; margin-bottom: 16px; }
+  .partner-more-content { display: none; }
+  .partner-more-toggle {
+    appearance: none;
+    background: transparent;
+    border: 0;
+    color: var(--blue-700);
+    cursor: pointer;
+    font: 600 12px/1.4 'Poppins', sans-serif;
+    margin: -4px 0 14px;
+    padding: 0;
+  }
+  .partner-more-toggle:hover { color: var(--blue-900); text-decoration: underline; }
+  .partner-more-toggle:focus-visible { outline: 2px solid var(--blue-700); outline-offset: 4px; border-radius: 2px; }
+  .partner-profile-modal {
+    width: min(720px, calc(100% - 32px));
+    max-height: min(82vh, 760px);
+    margin: auto;
+    padding: 0;
+    border: 0;
+    border-radius: 22px;
+    color: var(--ink);
+    box-shadow: 0 28px 80px rgba(15, 23, 42, .3);
+  }
+  .partner-profile-modal::backdrop { background: rgba(15, 23, 42, .62); backdrop-filter: blur(4px); }
+  .partner-modal-inner { position: relative; padding: 42px; overflow-y: auto; max-height: min(82vh, 760px); }
+  .partner-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 18px;
+    width: 38px;
+    height: 38px;
+    border: 1px solid #dbe4f0;
+    border-radius: 50%;
+    background: #fff;
+    color: var(--ink);
+    cursor: pointer;
+    font-size: 24px;
+    line-height: 1;
+  }
+  .partner-modal-profile h3 { color: var(--blue-800); font-size: 26px; margin: 0 48px 5px 0; }
+  .partner-modal-profile .role { color: var(--blue-700); font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .partner-modal-profile .quals { color: var(--ink-soft); font-size: 13px; margin-bottom: 22px; }
+  .partner-modal-profile p { color: var(--ink-soft); font-size: 15px; line-height: 1.75; margin-bottom: 16px; }
+  .partner-modal-profile .partner-more-content { display: block; }
+  .partner-modal-profile .partner-tags { margin-top: 22px; }
+
+  @media (max-width: 600px) {
+    .partner-profile-modal { width: 100%; max-width: none; height: 100%; max-height: none; border-radius: 0; }
+    .partner-modal-inner { min-height: 100%; max-height: 100vh; padding: 72px 24px 32px; }
+    .partner-modal-close { position: fixed; top: 18px; right: 18px; }
+    .partner-modal-profile h3 { font-size: 23px; }
+  }
   .partner-tags { display: flex; gap: 6px; flex-wrap: wrap; }
   .partner-tag {
     background: var(--blue-50);
@@ -670,6 +722,124 @@
   </div>
 </section>
 
+<!-- -- LEADERSHIP -- -->
+<section class="team-section" id="leadershipSection">
+  <div class="container">
+    <div class="center">
+      <span class="eyebrow">OUR LEADERSHIP</span>
+      <h2 class="section-title">Meet the Partners</h2>
+      <p class="section-sub">The experienced professionals and strategic thinkers at the helm of Lexmart Corporate Solutions.</p>
+    </div>
+
+    <div class="partners-row">
+      <div class="partner-card-new">
+        <div class="partner-avatar">GG</div>
+        <div class="partner-body">
+          <h3>Mr. Gagan Gulati</h3>
+          <div class="role">Founder Member &ndash; Corporate &amp; IBC Advisory</div>
+          <div class="quals">Insolvency Professional, LL.B., B.Com (H)</div>
+          <p>Mr. Gagan Gulati, Founder Member of Lexmart Corporate Solutions LLP, is a seasoned <strong>Advocate and Registered Insolvency Professional</strong> with over <strong>22 years of extensive experience</strong> in corporate advisory and dispute resolution.</p>
+          <div class="partner-more-content" id="partner-details-gg" hidden>
+            <p>He has a distinguished track record in handling <strong>Insolvency and Bankruptcy Code (IBC) matters, amalgamations and corporate restructuring, registration and protection of Intellectual Property Rights (IPRs), and corporate civil and criminal litigation.</strong></p>
+            <p>With deep professional acumen and strategic insight, Mr. Gulati plays a pivotal role in guiding clients through complex regulatory frameworks and restructuring processes, ensuring effective representation and result-oriented solutions.</p>
+          </div>
+          <button class="partner-more-toggle" type="button">View Full Profile</button>
+          <div class="partner-tags">
+            <span class="partner-tag">IBC</span><span class="partner-tag">Amalgamations</span><span class="partner-tag">Restructuring</span><span class="partner-tag">IPR</span><span class="partner-tag">Litigation</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="partner-card-new">
+        <div class="partner-avatar">NK</div>
+        <div class="partner-body">
+          <h3>Mr. Nitin Kumar</h3>
+          <div class="role">Partner &ndash; Corporate Restructuring &amp; Compliance</div>
+          <div class="quals">LL.B., FCS, B.Com</div>
+          <p>Mr. Nitin Kumar, Partner at Lexmart Corporate Solutions LLP, is an experienced <strong>Advocate</strong> and a <strong>Fellow Member of the Institute of Company Secretaries of India (ICSI)</strong>. With over <strong>15 years of professional experience</strong>, he specializes in:</p>
+          <div class="partner-more-content" id="partner-details-nk" hidden>
+            <p><strong>Corporate restructuring and strategic advisory, Insolvency and Bankruptcy Code (IBC), Foreign Exchange Management Act (FEMA) compliances, corporate due diligence, and regulatory approvals.</strong></p>
+            <p>Mr. Kumar brings a sharp analytical mind and deep regulatory knowledge to the firm&rsquo;s operations. His comprehensive understanding of corporate laws and restructuring frameworks enables clients to achieve compliant and strategically sound business outcomes.</p>
+          </div>
+          <button class="partner-more-toggle" type="button">View Full Profile</button>
+          <div class="partner-tags">
+            <span class="partner-tag">Restructuring</span><span class="partner-tag">IBC</span><span class="partner-tag">FEMA</span><span class="partner-tag">Due Diligence</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="partner-card-new">
+        <div class="partner-avatar">YB</div>
+        <div class="partner-body">
+          <h3>Ms. Yogita Bhatia</h3>
+          <div class="role">Partner &ndash; Secretarial &amp; Regulatory Compliances</div>
+          <div class="quals">LL.B., FCS, B.Com (H)</div>
+          <p>Ms. Yogita Bhatia, Partner at Lexmart Corporate Solutions LLP, is a <strong>Fellow Member of the Institute of Company Secretaries of India (ICSI)</strong> and an accomplished <strong>Advocate</strong>. She brings over <strong>12 years of professional experience</strong> in <strong>Corporate Secretarial and Regulatory Compliance</strong>, with a strong focus on:</p>
+          <div class="partner-more-content" id="partner-details-yb" hidden>
+            <p><strong>Listing Regulations and SEBI compliances, FEMA advisory and reporting, the NBFC regulatory framework, and compliance management for listed and unlisted companies.</strong></p>
+            <p>Ms. Bhatia has been instrumental in ensuring timely and accurate compliance under various corporate laws. Her expertise helps businesses stay aligned with evolving regulatory requirements while maintaining strong governance practices.</p>
+          </div>
+          <button class="partner-more-toggle" type="button">View Full Profile</button>
+          <div class="partner-tags">
+            <span class="partner-tag">SEBI Compliances</span><span class="partner-tag">FEMA Advisory</span><span class="partner-tag">NBFC Regulatory</span><span class="partner-tag">Governance</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="partner-card-new">
+        <div class="partner-avatar">PJ</div>
+        <div class="partner-body">
+          <h3>Mr. Pankaj Jangid</h3>
+          <div class="role">Partner &ndash; Taxation</div>
+          <div class="quals">FCA, M.Com, B.Com (H), CPCA</div>
+          <p>Mr. Pankaj Jangid is a <strong>Fellow Chartered Accountant</strong> and a distinguished leader in the field of <strong>Taxation and Financial Advisory</strong>, with over <strong>12 years of proven expertise</strong> in delivering high-impact, strategic tax solutions and driving excellence across diverse business sectors.</p>
+          <div class="partner-more-content" id="partner-details-pj" hidden>
+            <p>His deep proficiency spans <strong>domestic and international tax advisory, direct and indirect taxation strategies, statutory and internal audits, regulatory compliance and risk mitigation, accounting standards, and business structuring.</strong></p>
+            <p>Mr. Jangid is recognized for his <strong>analytical depth, solution-driven mindset</strong>, and <strong>meticulous approach</strong> to tax planning and financial structuring. He has consistently helped organizations optimize their tax positions, ensure full compliance, and enhance financial transparency. His leadership ensures that clients not only meet their statutory obligations but also gain a competitive edge in today&rsquo;s dynamic regulatory environment.</p>
+          </div>
+          <button class="partner-more-toggle" type="button">View Full Profile</button>
+          <div class="partner-tags">
+            <span class="partner-tag">Domestic &amp; International Tax</span><span class="partner-tag">Audits</span><span class="partner-tag">Risk Mitigation</span><span class="partner-tag">Business Structuring</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<dialog class="partner-profile-modal" id="partnerProfileModal" aria-labelledby="partnerModalTitle">
+  <div class="partner-modal-inner">
+    <button class="partner-modal-close" type="button" aria-label="Close profile">&times;</button>
+    <div class="partner-modal-profile" id="partnerModalContent"></div>
+  </div>
+</dialog>
+
+<script>
+  document.querySelector('.about-hero').insertAdjacentElement('afterend', document.getElementById('leadershipSection'));
+
+  var partnerModal = document.getElementById('partnerProfileModal');
+  var partnerModalContent = document.getElementById('partnerModalContent');
+
+  document.querySelectorAll('.partner-more-toggle').forEach(function (button) {
+    button.addEventListener('click', function () {
+      var profile = button.closest('.partner-body').cloneNode(true);
+      profile.querySelector('.partner-more-toggle').remove();
+      profile.querySelector('.partner-more-content').hidden = false;
+      profile.querySelector('h3').id = 'partnerModalTitle';
+      partnerModalContent.replaceChildren.apply(partnerModalContent, Array.from(profile.childNodes));
+      partnerModal.showModal();
+    });
+  });
+
+  partnerModal.querySelector('.partner-modal-close').addEventListener('click', function () {
+    partnerModal.close();
+  });
+
+  partnerModal.addEventListener('click', function (event) {
+    if (event.target === partnerModal) partnerModal.close();
+  });
+</script>
+
 <!-- -- CTA BANNER -- -->
 <section class="about-cta">
   <div class="container">
@@ -695,7 +865,7 @@
             <img src="images/white_logo.png" alt="Lexmart Logo"
               style="height:140px; width:auto; object-fit:contain; border-radius:8px;">
           </a>
-          <p>Legal and business consulting for startups, SMEs, and enterprises &ndash; from incorporation to ongoing compliance.</p>
+          <p>Corporate and business consulting for startups, SMEs, and enterprises &ndash; from incorporation to ongoing compliance.</p>
           <div class="social-row">
             <a class="social-circle" href="#"><svg class="icon" style="width:16px;height:16px;">
                 <use href="#i-linkedin" />
@@ -768,5 +938,3 @@
 
 </body>
 </html>
-
-

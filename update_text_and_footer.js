@@ -29,7 +29,7 @@ function processDir(dir) {
                 }
                 const subtitleRegex = /TRUSTED LEGAL & BUSINESS ADVISORS/i;
                 if (subtitleRegex.test(content)) {
-                    content = content.replace(subtitleRegex, 'EXPERT LEGAL & BUSINESS ADVISORS');
+                    content = content.replace(subtitleRegex, 'EXPERT CORPORATE & BUSINESS ADVISORS');
                     modified = true;
                 }
             }

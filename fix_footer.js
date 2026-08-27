@@ -10,7 +10,7 @@ const correctFooter = `  <footer>
             <img src="images/white_logo.png" alt="Lexmart Logo"
               style="height:140px; width:auto; object-fit:contain; border-radius:8px;">
           </a>
-          <p>Legal and business consulting for startups, SMEs, and enterprises &ndash; from incorporation to ongoing compliance.</p>
+          <p>Corporate and business consulting for startups, SMEs, and enterprises &ndash; from incorporation to ongoing compliance.</p>
           <div class="social-row">
             <a class="social-circle" href="#"><svg class="icon" style="width:16px;height:16px;">
                 <use href="#i-linkedin" />
